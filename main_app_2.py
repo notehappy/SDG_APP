@@ -11,7 +11,7 @@ m = folium.Map(location=[23.47,77.94], tiles='CartoDB positron', name="Light Map
 df = r"Data/sdg_monthly_TH(pro).csv"
 df = pd.read_csv(df)
 
-choice = ['2018-02-01 00:00:00', '2018-03-01 00:00:00']
+choice = ['January 2019', 'February 2019']
 choice_selected = st.selectbox("Select choice", choice)
 
 folium.Choropleth(
