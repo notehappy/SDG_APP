@@ -17,7 +17,7 @@ from plotly.subplots import make_subplots
 from PIL import Image
 import os
 st.set_page_config(layout="wide", page_title='PM2.5 model of this study', page_icon=":earth_asia:")
-st.sidebar.markdown("SDG 11.6.2")
+st.sidebar.markdown("PM25 Predicting Model")
 # =============================================================================
 # Banner and Title
 # =============================================================================
