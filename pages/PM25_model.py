@@ -133,7 +133,7 @@ if st.checkbox("Show Dataframe"):
 # Bar Plot graphic
 # =============================================================================
 # Setting up columns
-st.header("Accuracy of Predicted PM2.5 concentration model comparing with PCD monitoring data")
+st.header("Average value of PM2.5 concentration in Thailand during 2018-2021")
 fig2 = go.Figure(
      go.Bar(
          x=average_TH.index,
@@ -147,7 +147,7 @@ fig2.update_layout(
     plot_bgcolor="#f9e5e5",
     width=800,
     height=600,
-    title=f"Accuracy of Predicted PM2.5 concentration model",
+    title=f"An assessment of Thailand was conducting using the model developing of this study",
     margin=dict(l=50, r=50, t=50, b=50)
 )
 st.plotly_chart(fig2)
@@ -157,7 +157,7 @@ st.plotly_chart(fig2)
 # Bar Plot graphic
 # =============================================================================
 # Setting up columns
-st.header("Average value of PM2.5 concentration in Thailand during 2018-2021")
+st.header("Accuracy of Predicted PM2.5 concentration model comparing with PCD monitoring data")
 fig3 = go.Figure()
 fig3.add_trace(
     go.Bar(
@@ -183,7 +183,7 @@ fig3.update_layout(
     plot_bgcolor="#f9e5e5",
     width=800,
     height=600,
-    title=f"An assessment of Thailand was conducting using the model developing of this study.",
+    title=f"Accuracy model of Predicted PM2.5 concentration.",
     margin=dict(l=50, r=50, t=50, b=50)
 )
 st.plotly_chart(fig3)
