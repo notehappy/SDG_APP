@@ -152,25 +152,3 @@ fig2.update_layout(
 )
 st.plotly_chart(fig2)
 
-# =============================================================================
-# Bar Plot graphic
-# =============================================================================
-# Setting up columns
-st.header("Accuracy of Predicted PM2.5 concentration model comparing with PCD monitoring data")
-fig2 = go.Figure(
-     go.Bar(
-         x=average_TH.index,
-         y=average_TH['SDG 11.6.2'],
-         hovertemplate="%{y:.2f}",
-         # showlegend=False,
-     ),
- )
-fig2.update_layout(
-    paper_bgcolor="#bcbcbc",
-    plot_bgcolor="#f9e5e5",
-    width=800,
-    height=600,
-    title=f"Accuracy of Predicted PM2.5 concentration model",
-    margin=dict(l=50, r=50, t=50, b=50)
-)
-st.plotly_chart(fig2)
