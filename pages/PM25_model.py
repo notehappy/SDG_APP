@@ -112,7 +112,7 @@ for item in province:
             y=line_df[item],
             hovertemplate="%{y:.2f}",
             # showlegend=False,
-            name=f'{item} µg/m^3',
+            name=item,
         ),
     )
 fig1.update_layout(barmode="stack")
