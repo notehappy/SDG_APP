@@ -152,7 +152,7 @@ sources = (df1.columns)
 province = col2.multiselect("Choose province ", sources)
 
 fig1 = go.Figure()
-for para in parameters:
+for para in parameter:
     
     for item in province:
         fig1.add_trace(
