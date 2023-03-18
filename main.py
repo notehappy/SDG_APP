@@ -56,7 +56,7 @@ st.write("- <span style='color:red'>Policy and Governance for SDGs</span>", unsa
 st.subheader("Researcher")
 
 # Ajarn Pong
-col1, col2 = st.columns([1,3])
+col1, col2 = st.columns([1,2])
 col1.image(r'Image/Ekbordinw.jpg', width=300)
 col2.write('<span style="color:green; font-weight:bold">Associate Professor Dr. Ekebodin Winijkul</span>', unsafe_allow_html=True)
 col2.write('Position: Program Director and Researcher in second subproject')
@@ -64,7 +64,7 @@ col2.write('Department of Energy, Environment and Climate Change')
 col2.write('Asian Institue of Technology, Thailand')
 
 # Ajarn Wenchao
-col3, col4 = st.columns([1,3])
+col3, col4 = st.columns([1,2])
 col3.image(r'Image/Wenchao.jpeg', width=300)
 col4.write('<span style="color:green; font-weight:bold">Associate Professor Dr. Wenchao Xue</span>', unsafe_allow_html=True)
 col4.write('Position: First subproject director')
@@ -72,7 +72,7 @@ col4.write('Department of Energy, Environment and Climate Change')
 col4.write('Asian Institue of Technology, Thailand')
 
 # Ajarn Virdis
-col5, col6 = st.columns([1,3])
+col5, col6 = st.columns([1,2])
 col5.image(r'Image/Virdis.jpeg', width=300)
 col6.write('<span style="color:green; font-weight:bold">Associate Professor Dr. Salvatore G.P. Virdis</span>', unsafe_allow_html=True)
 col6.write('Position: Researcher in first subproject')
@@ -80,7 +80,7 @@ col6.write('Department of Information & Communication Technologies')
 col6.write('Asian Institue of Technology, Thailand')
 
 # Ajarn Lai
-col7, col8 = st.columns([1,3])
+col7, col8 = st.columns([1,2])
 col7.image(r'Image/Lai.jpg', width=300)
 col8.write('<span style="color:green; font-weight:bold">Assisstant Professor Dr. Thi Phouc Lai Nguyen</span>', unsafe_allow_html=True)
 col8.write('Position: Second subproject  director')
@@ -88,7 +88,7 @@ col8.write('Department of Development & Sustainability')
 col8.write('Asian Institue of Technology, Thailand')
 
 # Pongsakon
-col9, col10 = st.columns([1,3])
+col9, col10 = st.columns([1,2])
 col9.image(r'Image/Pongsakon.jpg', width=300)
 col10.write('<span style="color:green; font-weight:bold">Mr. Pongsakon Punpukdee</span>', unsafe_allow_html=True)
 col10.write('Position: Researcher')
