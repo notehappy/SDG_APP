@@ -41,6 +41,6 @@ st.write("* The researchers responsible for Indicator 11.2.1 were Associate Prof
 # =============================================================================
 # Data Downloading
 # =============================================================================
-json1 = "Data/6_provinces_WGS"
+json1 = "Data/6_provinces_WGS.json"
 with open(json1) as response:
     geo = json.load(response)
