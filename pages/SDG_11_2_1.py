@@ -79,7 +79,7 @@ if choice_selected == 'normal person' and choice_selected1 == 'number of people'
             geojson= geo,
             locations=df['Province'],
             featureidkey="properties.ADM1_EN",
-            z=df['All public transportation', 'Bus', 'Ferry', 'Railway','Train'],
+            z=df['All public transportation'],
             colorscale="sunsetdark",
             # zmin=0,
             # zmax=500000,
