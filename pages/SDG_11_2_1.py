@@ -72,7 +72,7 @@ if choice_selected == 'normal person' and choice_selected1 == 'number of people'
     left_column1, right_column1 = st.columns([1, 1])
     choice3 = ['All public transportation', 'Bus', 'Ferry', 'Railway','Train']
     choice_selected3 = left_column1.selectbox("Select the type of public transportration", choice3)
-    choice4 = ['Children', 'Adults', 'Older Adults', 'Nonidentified	']
+    choice4 = ['Children', 'Adults', 'Older Adults', 'Nonidentified']
     choice_selected4 = right_column1.selectbox("Select the age ranges", choice4)
     df = number_normal[number_normal['Age group'] == f'{choice_selected4}']
     fig = go.Figure(
