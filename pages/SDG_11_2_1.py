@@ -63,18 +63,48 @@ st.header("Spatial distribution of SDG 11.2.1 in Thailand")
 
 left_column, right_column = st.columns([1, 1])
 choice1 = ['normal person', 'disabled person']
-choice_selected = left_column.selectbox("Select the type of person", choice1)
+choice_selected1 = left_column.selectbox("Select the type of person", choice1)
 
 choice2 = ['number of people', 'percentage of people']
-choice_selected1 = right_column.selectbox("Select the type of person", choice2)
+choice_selected2 = right_column.selectbox("Select the type of person", choice2)
 
-if choice_selected == 'normal person' and choice_selected1 == 'number of people':
+if choice_selected1 == 'normal person' and choice_selected2 == 'number of people':
     left_column1, right_column1 = st.columns([1, 1])
     choice3 = ['All public transportation', 'Bus', 'Ferry', 'Railway','Train']
     choice_selected3 = left_column1.selectbox("Select the type of public transportration", choice3)
     choice4 = ['Children', 'Adults', 'Older Adults', 'Nonidentified']
     choice_selected4 = right_column1.selectbox("Select the age ranges", choice4)
     df = number_normal[number_normal['Age group'] == f'{choice_selected4}']
+    st.write('The number of people can access to public transportration in BMR during 2020')
+    fig = go.Figure(
+        go.Choroplethmapbox(
+            geojson= geo,
+            locations=df.index,
+            featureidkey="properties.ADM1_EN",
+            z=df[f'{choice_selected3}'],
+            colorscale="sunsetdark",
+            # zmin=0,
+            # zmax=500000,
+            marker_opacity=0.5,
+            marker_line_width=0,
+        )
+    )
+    fig.update_layout(
+        mapbox_style="carto-positron",
+        mapbox_zoom=8.2,
+        mapbox_center={"lat": 13.72917, "lon": 100.52389},
+        width=800,
+        height=600,
+    )
+    fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
+    st.plotly_chart(fig)
+    
+elif choice_selected1 == 'normal person' and choice_selected2 == 'percentage of people':
+    left_column1, right_column1 = st.columns([1, 1])
+    choice3 = ['All public transportation', 'Bus', 'Ferry', 'Railway','Train']
+    choice_selected3 = left_column1.selectbox("Select the type of public transportration", choice3)
+    df = percent_normanl
+    st.write('The percentage of people can access to public transportration in BMR during 2020')
     fig = go.Figure(
         go.Choroplethmapbox(
             geojson= geo,
