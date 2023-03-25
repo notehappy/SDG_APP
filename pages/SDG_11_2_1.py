@@ -73,7 +73,8 @@ st.warning('Caution: The spatial map may take some time to process and may resul
 if choice_selected == 'normal person' and choice_selected1 == 'number of people':
     left_column1, right_column1 = st.columns([1, 1])
     choice2 = ['Children', 'Adults', 'Older Adults', 'Nonidentified	']
-    df = number_normal[number_normal['Age group'] == f'{choice2}']
+    choice_selected2 = right_column.selectbox("Select the type of person", choice2)
+    df = number_normal[number_normal['Age group'] == f'{choice_selected2}']
     fig = go.Figure(
         go.Choroplethmapbox(
             geojson= geo,
