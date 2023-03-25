@@ -41,6 +41,50 @@ st.write("* The researchers responsible for Indicator 11.2.1 were Associate Prof
 # =============================================================================
 # Data Downloading
 # =============================================================================
-json1 = "Data/6_provinces_WGS.json"
+json1 = "Data/six_provinces_WGS.json"
 with open(json1) as response:
     geo = json.load(response)
+
+percent_normanl = pd.read_excel(r'Data/Public_transport.xlsx', sheet_name='number_normal')
+percent_normanl.set_index('ADM1_EN', inplace = True)
+
+number_normal = pd.read_excel(r'Data/Public_transport.xlsx', sheet_name='number_normal')
+number_normal.set_index('ADM1_EN', inplace=True)
+
+percent_dis = pd.read_excel(r'Data/Public_transport.xlsx', sheet_name='percent_dis')
+percent_dis.set_index('ADM1_EN', inplace=True)
+
+number_dis = pd.read_excel(r'Data/Public_transport.xlsx', sheet_name='number_dis')
+number_dis.set_index('ADM1_EN', inplace=True)
+# =============================================================================
+# Map graphice
+# =============================================================================
+st.header("Spatial distribution of SDG 11.3.1 in Thailand")
+st.warning('Caution: The spatial map may take some time to process and may result in a timelapse.')
+if st.checkbox("Show Map"):
+    left_column, right_column = st.columns([1, 1])
+    choice = df.columns[1:]
+    choice_selected = left_column.selectbox("Select the parameter", choice)
+    # Geographic Map
+    fig = go.Figure(
+        go.Choroplethmapbox(
+            geojson= geo,
+            locations=df['ADM1_EN'],
+            featureidkey="properties.ADM1_EN",
+            z=df[choice_selected],
+            colorscale="sunsetdark",
+            # zmin=0,
+            # zmax=500000,
+            marker_opacity=0.5,
+            marker_line_width=0,
+        )
+    )
+    fig.update_layout(
+        mapbox_style="carto-positron",
+        mapbox_zoom=4.8,
+        mapbox_center={"lat": 13.72917, "lon": 100.52389},
+        width=800,
+        height=600,
+    )
+    fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
+    st.plotly_chart(fig)
