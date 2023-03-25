@@ -77,7 +77,7 @@ if choice_selected == 'normal person' and choice_selected1 == 'number of people'
     fig = go.Figure(
         go.Choroplethmapbox(
             geojson= geo,
-            locations=df['Province'],
+            locations=df.index,
             featureidkey="properties.ADM1_EN",
             z=df['All public transportation'],
             colorscale="sunsetdark",
