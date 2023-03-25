@@ -71,21 +71,15 @@ choice_selected1 = right_column.selectbox("Select the type of person", choice1)
 st.warning('Caution: The spatial map may take some time to process and may result in a timelapse.')
 
 if choice_selected == 'normal person' and choice_selected1 == 'number of people':
-    st.write('It is correct')
-
-
-
-if st.checkbox("Show Map"):
-    left_column, right_column = st.columns([1, 1])
-    choice = df.columns[1:]
-    choice_selected = left_column.selectbox("Select the parameter", choice)
-    # Geographic Map
+    left_column1, right_column1 = st.columns([1, 1])
+    choice2 = ['Children', 'Adults', 'Older Adults', 'Nonidentified	']
+    df = number_normal[number_normal['Age_group'] == choice2]
     fig = go.Figure(
         go.Choroplethmapbox(
             geojson= geo,
-            locations=df['ADM1_EN'],
+            locations=df['Province'],
             featureidkey="properties.ADM1_EN",
-            z=df[choice_selected],
+            z=df['All public transportation', 'Bus', 'Ferry', 'Railway','Train'],
             colorscale="sunsetdark",
             # zmin=0,
             # zmax=500000,
