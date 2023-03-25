@@ -45,7 +45,7 @@ json1 = "Data/six_provinces_WGS.json"
 with open(json1) as response:
     geo = json.load(response)
 
-percent_normanl = pd.read_excel(r'Data/Public_transport.xlsx', sheet_name='number_normal')
+percent_normanl = pd.read_excel(r'Data/Public_transport.xlsx', sheet_name='percent_normal')
 percent_normanl.set_index('Province', inplace = True)
 
 number_normal = pd.read_excel(r'Data/Public_transport.xlsx', sheet_name='number_normal')
@@ -59,8 +59,20 @@ number_dis.set_index('Province', inplace=True)
 # =============================================================================
 # Map graphice
 # =============================================================================
-st.header("Spatial distribution of SDG 11.3.1 in Thailand")
+st.header("Spatial distribution of SDG 11.2.1 in Thailand")
+
+left_column, right_column = st.columns([1, 1])
+choice = ['normal_person', 'disabled person']
+choice_selected = left_column.selectbox("Select the type of person", choice)
+
+choice1 = ['number of people', 'percentage of people']
+choice_selected1 = right_column.selectbox("Select the type of person", choice1)
+
 st.warning('Caution: The spatial map may take some time to process and may result in a timelapse.')
+
+
+
+
 if st.checkbox("Show Map"):
     left_column, right_column = st.columns([1, 1])
     choice = df.columns[1:]
