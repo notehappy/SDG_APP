@@ -90,7 +90,7 @@ if choice_selected == 'normal person' and choice_selected1 == 'number of people'
     )
     fig.update_layout(
         mapbox_style="carto-positron",
-        mapbox_zoom=9,
+        mapbox_zoom=8.5,
         mapbox_center={"lat": 13.72917, "lon": 100.52389},
         width=800,
         height=600,
