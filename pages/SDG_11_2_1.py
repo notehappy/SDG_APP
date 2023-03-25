@@ -46,16 +46,16 @@ with open(json1) as response:
     geo = json.load(response)
 
 percent_normanl = pd.read_excel(r'Data/Public_transport.xlsx', sheet_name='number_normal')
-percent_normanl.set_index('ADM1_EN', inplace = True)
+percent_normanl.set_index('Province', inplace = True)
 
 number_normal = pd.read_excel(r'Data/Public_transport.xlsx', sheet_name='number_normal')
-number_normal.set_index('ADM1_EN', inplace=True)
+number_normal.set_index('Province', inplace=True)
 
 percent_dis = pd.read_excel(r'Data/Public_transport.xlsx', sheet_name='percent_dis')
-percent_dis.set_index('ADM1_EN', inplace=True)
+percent_dis.set_index('Province', inplace=True)
 
 number_dis = pd.read_excel(r'Data/Public_transport.xlsx', sheet_name='number_dis')
-number_dis.set_index('ADM1_EN', inplace=True)
+number_dis.set_index('Province', inplace=True)
 # =============================================================================
 # Map graphice
 # =============================================================================
