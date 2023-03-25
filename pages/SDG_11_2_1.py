@@ -128,7 +128,7 @@ elif choice_selected1 == 'normal person' and choice_selected2 == 'percentage of 
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
     st.plotly_chart(fig)
 
-elif choice_selected1 == 'normal person' and choice_selected2 == 'number of people':
+elif choice_selected1 == 'disabled person' and choice_selected2 == 'number of people':
     left_column1, right_column1 = st.columns([1, 1])
     choice3 = ['All public transportation', 'Bus','Railway']
     choice_selected3 = left_column1.selectbox("Select the type of public transportration", choice3)
