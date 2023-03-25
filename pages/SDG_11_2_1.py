@@ -62,25 +62,25 @@ number_dis.set_index('Province', inplace=True)
 st.header("Spatial distribution of SDG 11.2.1 in Thailand")
 
 left_column, right_column = st.columns([1, 1])
-choice = ['normal person', 'disabled person']
-choice_selected = left_column.selectbox("Select the type of person", choice)
+choice1 = ['normal person', 'disabled person']
+choice_selected = left_column.selectbox("Select the type of person", choice1)
 
-choice1 = ['number of people', 'percentage of people']
-choice_selected1 = right_column.selectbox("Select the type of person", choice1)
-
-st.warning('Caution: The spatial map may take some time to process and may result in a timelapse.')
+choice2 = ['number of people', 'percentage of people']
+choice_selected1 = right_column.selectbox("Select the type of person", choice2)
 
 if choice_selected == 'normal person' and choice_selected1 == 'number of people':
     left_column1, right_column1 = st.columns([1, 1])
-    choice2 = ['Children', 'Adults', 'Older Adults', 'Nonidentified	']
-    choice_selected2 = right_column.selectbox("Select the type of person", choice2)
-    df = number_normal[number_normal['Age group'] == f'{choice_selected2}']
+    choice3 = ['All public transportation', 'Bus', 'Ferry', 'Railway','Train']
+    choice_selected3 = right_column1.selectbox("Select the type of public transportration", choice3)
+    choice4 = ['Children', 'Adults', 'Older Adults', 'Nonidentified	']
+    choice_selected4 = right_column1.selectbox("Select the age ranges", choice4)
+    df = number_normal[number_normal['Age group'] == f'{choice_selected4}']
     fig = go.Figure(
         go.Choroplethmapbox(
             geojson= geo,
             locations=df.index,
             featureidkey="properties.ADM1_EN",
-            z=df['All public transportation'],
+            z=df[f'{choice_selected3}'],
             colorscale="sunsetdark",
             # zmin=0,
             # zmax=500000,
