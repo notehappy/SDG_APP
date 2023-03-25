@@ -133,7 +133,7 @@ elif choice_selected1 == 'disabled person' and choice_selected2 == 'number of pe
     choice3 = ['All public transportation', 'Bus','Railway']
     choice_selected3 = left_column1.selectbox("Select the type of public transportration", choice3)
     df = number_dis
-    st.write('The number of people can access to public transportration in BMR during 2020')
+    st.write('The number of people with disable can access to public transportration in BMR during 2020')
     fig = go.Figure(
         go.Choroplethmapbox(
             geojson= geo,
@@ -161,8 +161,8 @@ elif choice_selected1 == 'disabled person' and choice_selected2 == 'percentage o
     left_column1, right_column1 = st.columns([1, 1])
     choice3 = ['All public transportation', 'Bus', 'Railway']
     choice_selected3 = left_column1.selectbox("Select the type of public transportration", choice3)
-    df = percent_normanl
-    st.write('The percentage of people can access to public transportration in BMR during 2020')
+    df = percent_dis
+    st.write('The percentage of people with disable can access to public transportration in BMR during 2020')
     fig = go.Figure(
         go.Choroplethmapbox(
             geojson= geo,
