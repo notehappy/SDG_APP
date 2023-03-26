@@ -56,6 +56,7 @@ percent_dis.set_index('Province', inplace=True)
 
 number_dis = pd.read_excel(r'Data/Public_transport.xlsx', sheet_name='number_dis')
 number_dis.set_index('Province', inplace=True)
+
 # =============================================================================
 # Map graphice
 # =============================================================================
@@ -151,8 +152,8 @@ elif choice_selected1 == 'disabled person' and choice_selected2 == 'number of pe
         mapbox_style="carto-positron",
         mapbox_zoom=8.2,
         mapbox_center={"lat": 13.72917, "lon": 100.52389},
-        width=800,
-        height=600,
+        width=1600,
+        height=1000,
     )
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
     st.plotly_chart(fig)
@@ -185,3 +186,7 @@ elif choice_selected1 == 'disabled person' and choice_selected2 == 'percentage o
     )
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
     st.plotly_chart(fig)
+
+# =============================================================================
+# Bar plot of data
+# =============================================================================
