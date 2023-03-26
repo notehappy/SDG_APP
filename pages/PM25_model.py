@@ -162,11 +162,11 @@ fig2.update_layout(
     legend=dict(
         orientation="h",
         yanchor="bottom",
-        y=-1,
+        y=0,
         xanchor="right",
         x=1
     ),
-    margin=dict(l=50, r=50, t=50, b=80)
+    margin=dict(l=50, r=50, t=50, b=50)
 )
 st.plotly_chart(fig2)
 
@@ -207,7 +207,7 @@ fig3.update_layout(
     legend=dict(
         orientation="h",
         yanchor="bottom",
-        y=0,
+        y=1.02,
         xanchor="right",
         x=1
     ),
