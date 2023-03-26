@@ -129,7 +129,7 @@ if choice_selected1 == 'normal person' and choice_selected2 == 'number of people
     
 elif choice_selected1 == 'normal person' and choice_selected2 == 'percentage of people':
     left_column1, right_column1 = st.columns([1, 1])
-    choice3 = ['All public transportation', 'Bus', 'Ferry', 'Railway','Train']
+    choice3 = ['All public transportation', 'Bus', 'Ferry', 'Railway', 'Train']
     choice_selected3 = left_column1.selectbox("Select the type of public transportration", choice3)
     df = percent_dis
     st.write('The percentage of people can access to public transportration in BMR during 2020')
