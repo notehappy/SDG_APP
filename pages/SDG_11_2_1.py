@@ -217,30 +217,63 @@ elif choice_selected1 == 'disabled person' and choice_selected2 == 'number of pe
     choice3 = ['All public transportation', 'Bus','Railway']
     choice_selected3 = left_column1.selectbox("Select the type of public transportration", choice3)
     df = number_dis
-    st.write('The number of people with disable can access to public transportration in BMR during 2020')
-    fig = go.Figure(
-        go.Choroplethmapbox(
-            geojson= geo,
-            locations=df.index,
-            featureidkey="properties.ADM1_EN",
-            z=df[f'{choice_selected3}'],
-            colorscale="sunsetdark",
-            # zmin=0,
-            # zmax=500000,
-            marker_opacity=0.5,
-            marker_line_width=0,
+    st.write(f'{style_title_graph}<p class="center-text bold-color-text">The number of people with disable can access to public transportration in BMR during 2020</p>', unsafe_allow_html=True)
+    col5, col6 = st.columns([1, 1])
+    with col5:
+        fig = go.Figure(
+            go.Choroplethmapbox(
+                geojson= geo,
+                locations=df.index,
+                featureidkey="properties.ADM1_EN",
+                z=df[f'{choice_selected3}'],
+                colorscale="sunsetdark",
+                # zmin=0,
+                # zmax=500000,
+                marker_opacity=0.5,
+                marker_line_width=0,
+            )
         )
-    )
-    fig.update_layout(
-        mapbox_style="carto-positron",
-        mapbox_zoom=8.2,
-        mapbox_center={"lat": 13.72917, "lon": 100.52389},
-        width=1200,
-        height=800,
-    )
-    fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
-    st.plotly_chart(fig)
-    
+        fig.update_layout(
+            mapbox_style="carto-positron",
+            mapbox_zoom=8.2,
+            mapbox_center={"lat": 13.72917, "lon": 100.52389},
+            # width=1200,
+            # height=800,
+        )
+        fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
+        st.plotly_chart(fig)
+    with col6:
+        types_public = ['All public transportation', 'Bus', 'Railway']
+        fig2 = go.Figure()
+        if choice_selected1 == 'normal person':
+            for item in types_public:
+                fig2.add_trace(
+                    go.Bar(
+                        x=df.index,
+                        y=df[item],
+                        hovertemplate="%{y:.2f}",
+                        name= f'{item}',
+                ),
+                )
+            # fig2.update_layout(barmode="stack")
+            fig2.update_layout(
+                paper_bgcolor="#bcbcbc",
+                plot_bgcolor="#f9e5e5",
+                # width=900,
+                # height=1000,
+                # title={'text' : f"SDG 11.2.1 assessment and related value by selecting province in Thailand"
+                #     ,'x': 0.5, # Set the x anchor to the center of the chart
+                #     'xanchor': 'center'},
+                margin=dict(l=50, r=50, t=50, b=50),
+                legend=dict(
+                orientation="h",
+                yanchor="bottom",
+                y=1.02,
+                xanchor="right",
+                x=1
+            )
+            )
+            st.plotly_chart(fig2)
 elif choice_selected1 == 'disabled person' and choice_selected2 == 'percentage of people':
     left_column1, right_column1 = st.columns([1, 1])
     choice3 = ['All public transportation', 'Bus', 'Railway']
