@@ -133,8 +133,8 @@ elif choice_selected1 == 'normal person' and choice_selected2 == 'percentage of 
     choice_selected3 = left_column1.selectbox("Select the type of public transportration", choice3)
     df = percent_dis
     st.write('The percentage of people can access to public transportration in BMR during 2020')
-    col1, col2 = st.columns([1, 1])
-    with col1 :
+    col3, col4 = st.columns([1, 1])
+    with col3 :
         fig = go.Figure(
             go.Choroplethmapbox(
                 geojson= geo,
@@ -158,7 +158,7 @@ elif choice_selected1 == 'normal person' and choice_selected2 == 'percentage of 
         fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
         st.plotly_chart(fig)
         '''
-    with col2:
+    with col4:
         fig2 = go.Figure()
         if choice_selected1 == 'normal person':
             for item in choice3:
