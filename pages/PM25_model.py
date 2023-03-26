@@ -119,8 +119,8 @@ fig1.update_layout(barmode="stack")
 fig1.update_layout(
     paper_bgcolor="#bcbcbc",
     plot_bgcolor="#f9e5e5",
-    # width=800,
-    # height=600,
+    width=800,
+    height=600,
     title={'text' : f"Average value of PM2.5 concentration using the model developing of this study."
            ,'x': 0.5, # Set the x anchor to the center of the chart
            'xanchor': 'center'},
@@ -147,8 +147,8 @@ fig2 = go.Figure(
 fig2.update_layout(
     paper_bgcolor="#bcbcbc",
     plot_bgcolor="#f9e5e5",
-    # width=800,
-    # height=600,
+    width=800,
+    height=600,
     title={'text' : f"An assessment of Thailand was conducting using the model developing of this study"
            ,'x': 0.5, # Set the x anchor to the center of the chart
            'xanchor': 'center'},
@@ -185,8 +185,8 @@ fig3.update_layout(barmode="stack")
 fig3.update_layout(
     paper_bgcolor="#bcbcbc",
     plot_bgcolor="#f9e5e5",
-    # width=800,
-    # height=600,
+    width=800,
+    height=600,
     title={'text' : f"Accuracy model of Predicted PM2.5 concentration."
            ,'x': 0.5, # Set the x anchor to the center of the chart
            'xanchor': 'center'},
