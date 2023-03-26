@@ -124,6 +124,13 @@ fig1.update_layout(
     title={'text' : f"Average value of PM2.5 concentration using the model developing of this study."
            ,'x': 0.5, # Set the x anchor to the center of the chart
            'xanchor': 'center'},
+    legend=dict(
+        orientation="h",
+        yanchor="bottom",
+        y=1.02,
+        xanchor="right",
+        x=1
+    ),
     margin=dict(l=50, r=50, t=50, b=50)
 )
 st.plotly_chart(fig1)
@@ -152,6 +159,13 @@ fig2.update_layout(
     title={'text' : f"An assessment of Thailand was conducting using the model developing of this study"
            ,'x': 0.5, # Set the x anchor to the center of the chart
            'xanchor': 'center'},
+    legend=dict(
+        orientation="h",
+        yanchor="bottom",
+        y=1.02,
+        xanchor="right",
+        x=1
+    ),
     margin=dict(l=50, r=50, t=50, b=50)
 )
 st.plotly_chart(fig2)
@@ -190,6 +204,13 @@ fig3.update_layout(
     title={'text' : f"Accuracy model of Predicted PM2.5 concentration."
            ,'x': 0.5, # Set the x anchor to the center of the chart
            'xanchor': 'center'},
+    legend=dict(
+        orientation="h",
+        yanchor="bottom",
+        y=1.02,
+        xanchor="right",
+        x=1
+    ),
     margin=dict(l=50, r=50, t=50, b=50)
 )
 st.plotly_chart(fig3)
