@@ -166,7 +166,7 @@ fig2.update_layout(
         xanchor="right",
         x=1
     ),
-    margin=dict(l=50, r=50, t=50, b=50)
+    margin=dict(l=50, r=50, t=50, b=80)
 )
 st.plotly_chart(fig2)
 
