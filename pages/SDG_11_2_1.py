@@ -62,7 +62,10 @@ number_dis.set_index('Province', inplace=True)
 # Set the CSS styles for bold text and a custom color
 style_title_graph = '''
     <style>
-        .bold-text {
+        .center-text {
+            text-align: center;
+        }
+        .bold-color-text {
             font-weight: bold;
             color: #ff5733;
         }
