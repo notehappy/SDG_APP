@@ -97,7 +97,7 @@ if choice_selected1 == 'normal person' and choice_selected2 == 'number of people
             mapbox_style="carto-positron",
             mapbox_zoom=8.2,
             mapbox_center={"lat": 13.72917, "lon": 100.52389},
-            width = 1000,
+            width = 900,
             height = 1200,
         )
         fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
@@ -119,7 +119,7 @@ if choice_selected1 == 'normal person' and choice_selected2 == 'number of people
             fig2.update_layout(
                 paper_bgcolor="#bcbcbc",
                 plot_bgcolor="#f9e5e5",
-                width=1000,
+                width=900,
                 height=1200,
                 title={'text' : f"SDG 11.3.1 assessment and related value by selecting province in Thailand"
                     ,'x': 0.5, # Set the x anchor to the center of the chart
