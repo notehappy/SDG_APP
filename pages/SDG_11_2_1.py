@@ -90,7 +90,7 @@ if choice_selected1 == 'normal person' and choice_selected2 == 'number of people
     choice4 = ['Children', 'Adults', 'Older Adults', 'Nonidentified']
     choice_selected4 = right_column1.selectbox("Select the age ranges", choice4)
     df = number_normal[number_normal['Age group'] == f'{choice_selected4}']
-    st.write('The number of people can access to public transportration in BMR during 2020')
+    st.write(f'{style_title_graph}<p class="center-text bold-color-text">The number of people can access to public transportration in BMR during 2020</p>', unsafe_allow_html=True)
     col1, col2 = st.columns([1, 1])
     with col1:
         fig = go.Figure(
