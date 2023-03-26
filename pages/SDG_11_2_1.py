@@ -152,8 +152,8 @@ elif choice_selected1 == 'disabled person' and choice_selected2 == 'number of pe
         mapbox_style="carto-positron",
         mapbox_zoom=8.2,
         mapbox_center={"lat": 13.72917, "lon": 100.52389},
-        width=1600,
-        height=1000,
+        width=1200,
+        height=800,
     )
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
     st.plotly_chart(fig)
