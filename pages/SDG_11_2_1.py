@@ -298,7 +298,7 @@ elif choice_selected1 == 'disabled person' and choice_selected2 == 'percentage o
         fig.update_layout(
             mapbox_style="carto-positron",
             mapbox_zoom=8.2,
-            mapbox_center={"lat": 13.72917, "lon": 100.52389},
+            mapbox_center={"lat": 13.0, "lon": 100.52389},
             # width=1200,
             # height=800,
         )
