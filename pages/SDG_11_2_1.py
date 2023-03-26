@@ -185,7 +185,7 @@ elif choice_selected1 == 'normal person' and choice_selected2 == 'percentage of 
                         name= f'{item}',
                 ),
                 )
-            fig2.update_layout(barmode="stack")
+            # fig2.update_layout(barmode="stack")
             fig2.update_layout(
                 paper_bgcolor="#bcbcbc",
                 plot_bgcolor="#f9e5e5",
