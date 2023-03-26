@@ -70,14 +70,14 @@ choice2 = ['number of people', 'percentage of people']
 choice_selected2 = right_column.selectbox("Select the type of person", choice2)
 
 if choice_selected1 == 'normal person' and choice_selected2 == 'number of people':
-    col1, col2 = st.columns()
     
+    left_column1, right_column1 = st.columns([1, 1])
     choice3 = ['All public transportation', 'Bus', 'Ferry', 'Railway','Train']
     choice_selected3 = left_column1.selectbox("Select the type of public transportration", choice3)
     choice4 = ['Children', 'Adults', 'Older Adults', 'Nonidentified']
     choice_selected4 = right_column1.selectbox("Select the age ranges", choice4)
     df = number_normal[number_normal['Age group'] == f'{choice_selected4}']
-    left_column1, right_column1 = st.columns([1, 1])
+    col1, col2 = st.columns()
     with col1:
         st.write('The number of people can access to public transportration in BMR during 2020')
         fig = go.Figure(
