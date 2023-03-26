@@ -120,9 +120,9 @@ if choice_selected1 == 'normal person' and choice_selected2 == 'number of people
                 plot_bgcolor="#f9e5e5",
                 # width=900,
                 # height=1000,
-                title={'text' : f"SDG 11.2.1 assessment and related value by selecting province in Thailand"
-                    ,'x': 0.5, # Set the x anchor to the center of the chart
-                    'xanchor': 'center'},
+                # title={'text' : f"SDG 11.2.1 assessment and related value by selecting province in Thailand"
+                #     ,'x': 0.5, # Set the x anchor to the center of the chart
+                #     'xanchor': 'center'},
                 margin=dict(l=50, r=50, t=50, b=50)
             )
             st.plotly_chart(fig2)
@@ -132,6 +132,7 @@ elif choice_selected1 == 'normal person' and choice_selected2 == 'percentage of 
     choice3 = ['All public transportation', 'Bus', 'Ferry', 'Railway', 'Train']
     choice_selected3 = left_column1.selectbox("Select the type of public transportration", choice3)
     df = percent_normal
+    st.write(f'<p style="text-align: center;">'The percentage of people can access to public transportration in BMR during 2020'</p>', unsafe_allow_html=True)
     st.write('The percentage of people can access to public transportration in BMR during 2020')
     col3, col4 = st.columns([1, 1])
     with col3 :
@@ -176,9 +177,9 @@ elif choice_selected1 == 'normal person' and choice_selected2 == 'percentage of 
                 plot_bgcolor="#f9e5e5",
                 # width=900,
                 # height=1000,
-                title={'text' : f"SDG 11.2.1 assessment and related value by selecting province in Thailand"
-                    ,'x': 0.5, # Set the x anchor to the center of the chart
-                    'xanchor': 'center'},
+                # title={'text' : f"SDG 11.2.1 assessment and related value by selecting province in Thailand"
+                #     ,'x': 0.5, # Set the x anchor to the center of the chart
+                #     'xanchor': 'center'},
                 margin=dict(l=50, r=50, t=50, b=50)
             )
             st.plotly_chart(fig2)
