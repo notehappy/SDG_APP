@@ -122,7 +122,7 @@ if choice_selected1 == 'normal person' and choice_selected2 == 'number of people
                 plot_bgcolor="#f9e5e5",
                 # width=900,
                 # height=1000,
-                title={'text' : f"SDG 11.3.1 assessment and related value by selecting province in Thailand"
+                title={'text' : f"SDG 11.2.1 assessment and related value by selecting province in Thailand"
                     ,'x': 0.5, # Set the x anchor to the center of the chart
                     'xanchor': 'center'},
                 margin=dict(l=50, r=50, t=50, b=50)
@@ -216,30 +216,3 @@ elif choice_selected1 == 'disabled person' and choice_selected2 == 'percentage o
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
     st.plotly_chart(fig)
 
-# =============================================================================
-# Bar plot of data
-# =============================================================================
-types_public = ['All public transportation', 'Bus', 'Ferry', 'Railway','Train']
-fig2 = go.Figure()
-if choice_selected1 == 'normal person':
-    for item in types_public:
-        fig2.add_trace(
-            go.Bar(
-                x=number_normal.index,
-                y=number_normal[item],
-                hovertemplate="%{y:.2f}",
-                name= f'{item}',
-        ),
-        )
-    fig2.update_layout(barmode="stack")
-    fig2.update_layout(
-        paper_bgcolor="#bcbcbc",
-        plot_bgcolor="#f9e5e5",
-        width=1200,
-        height=900,
-        title={'text' : f"SDG 11.3.1 assessment and related value by selecting province in Thailand"
-            ,'x': 0.5, # Set the x anchor to the center of the chart
-            'xanchor': 'center'},
-        margin=dict(l=50, r=50, t=50, b=50)
-    )
-    st.plotly_chart(fig2)
