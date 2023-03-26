@@ -194,7 +194,14 @@ elif choice_selected1 == 'normal person' and choice_selected2 == 'percentage of 
                 # title={'text' : f"SDG 11.2.1 assessment and related value by selecting province in Thailand"
                 #     ,'x': 0.5, # Set the x anchor to the center of the chart
                 #     'xanchor': 'center'},
-                margin=dict(l=50, r=50, t=50, b=50)
+                margin=dict(l=50, r=50, t=50, b=50),
+                legend=dict(
+                orientation="h",
+                yanchor="bottom",
+                y=1.02,
+                xanchor="right",
+                x=1
+            )
             )
             st.plotly_chart(fig2)
 
