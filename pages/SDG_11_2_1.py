@@ -77,7 +77,7 @@ if choice_selected1 == 'normal person' and choice_selected2 == 'number of people
     choice4 = ['Children', 'Adults', 'Older Adults', 'Nonidentified']
     choice_selected4 = right_column1.selectbox("Select the age ranges", choice4)
     df = number_normal[number_normal['Age group'] == f'{choice_selected4}']
-    col1, col2 = st.beta_columns([1, 1])
+    col1, col2 = st.columns([1, 1])
     with col1:
         st.write('The number of people can access to public transportration in BMR during 2020')
         fig = go.Figure(
@@ -97,11 +97,36 @@ if choice_selected1 == 'normal person' and choice_selected2 == 'number of people
             mapbox_style="carto-positron",
             mapbox_zoom=8.2,
             mapbox_center={"lat": 13.72917, "lon": 100.52389},
-            width = 300,
-            height = 300,
+            width = 1200,
+            height = 800,
         )
         fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
         st.plotly_chart(fig)
+    with col2:
+        types_public = ['All public transportation', 'Bus', 'Ferry', 'Railway','Train']
+        fig2 = go.Figure()
+        if choice_selected1 == 'normal person':
+            for item in types_public:
+                fig2.add_trace(
+                    go.Bar(
+                        x=df.index,
+                        y=df[item],
+                        hovertemplate="%{y:.2f}",
+                        name= f'{item}',
+                ),
+                )
+            fig2.update_layout(barmode="stack")
+            fig2.update_layout(
+                paper_bgcolor="#bcbcbc",
+                plot_bgcolor="#f9e5e5",
+                width=1200,
+                height=900,
+                title={'text' : f"SDG 11.3.1 assessment and related value by selecting province in Thailand"
+                    ,'x': 0.5, # Set the x anchor to the center of the chart
+                    'xanchor': 'center'},
+                margin=dict(l=50, r=50, t=50, b=50)
+            )
+            st.plotly_chart(fig2)
     
 elif choice_selected1 == 'normal person' and choice_selected2 == 'percentage of people':
     left_column1, right_column1 = st.columns([1, 1])
