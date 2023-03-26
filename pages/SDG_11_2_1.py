@@ -56,7 +56,18 @@ percent_dis.set_index('Province', inplace=True)
 
 number_dis = pd.read_excel(r'Data/Public_transport.xlsx', sheet_name='number_dis')
 number_dis.set_index('Province', inplace=True)
-
+# =============================================================================
+# Text style
+# =============================================================================
+# Set the CSS styles for bold text and a custom color
+style_title_graph = '''
+    <style>
+        .bold-text {
+            font-weight: bold;
+            color: #ff5733;
+        }
+    </style>
+'''
 # =============================================================================
 # Map graphice
 # =============================================================================
@@ -132,8 +143,8 @@ elif choice_selected1 == 'normal person' and choice_selected2 == 'percentage of 
     choice3 = ['All public transportation', 'Bus', 'Ferry', 'Railway', 'Train']
     choice_selected3 = left_column1.selectbox("Select the type of public transportration", choice3)
     df = percent_normal
-    st.write(f'<p style="text-align: center;">The percentage of people can access to public transportration in BMR during 2020</p>', unsafe_allow_html=True)
-    st.write('The percentage of people can access to public transportration in BMR during 2020')
+    st.write(f'{style_title_graph}<p class="bold-text">The percentage of people can access to public transportration in BMR during 2020</p>', unsafe_allow_html=True)
+    # st.write(f'<p style="text-align: center;">The percentage of people can access to public transportration in BMR during 2020</p>', unsafe_allow_html=True)
     col3, col4 = st.columns([1, 1])
     with col3 :
         fig = go.Figure(
