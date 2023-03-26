@@ -97,8 +97,8 @@ if choice_selected1 == 'normal person' and choice_selected2 == 'number of people
             mapbox_style="carto-positron",
             mapbox_zoom=8.2,
             mapbox_center={"lat": 13.72917, "lon": 100.52389},
-            width=1200,
-            height=800,
+            width = 300,
+            height = 300,
         )
         fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
         st.plotly_chart(fig)
