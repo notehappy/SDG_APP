@@ -77,7 +77,7 @@ if choice_selected1 == 'normal person' and choice_selected2 == 'number of people
     choice4 = ['Children', 'Adults', 'Older Adults', 'Nonidentified']
     choice_selected4 = right_column1.selectbox("Select the age ranges", choice4)
     df = number_normal[number_normal['Age group'] == f'{choice_selected4}']
-    col1, col2 = st.columns_beta()
+    col1, col2 = st.beta_columns()
     with col1:
         st.write('The number of people can access to public transportration in BMR during 2020')
         fig = go.Figure(
