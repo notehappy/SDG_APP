@@ -245,7 +245,7 @@ elif choice_selected1 == 'disabled person' and choice_selected2 == 'number of pe
     with col6:
         types_public = ['All public transportation', 'Bus', 'Railway']
         fig2 = go.Figure()
-        if choice_selected1 == 'normal person':
+        if choice_selected1 == 'disabled person':
             for item in types_public:
                 fig2.add_trace(
                     go.Bar(
