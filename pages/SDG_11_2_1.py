@@ -45,8 +45,8 @@ json1 = "Data/six_provinces_WGS.json"
 with open(json1) as response:
     geo = json.load(response)
 
-percent_normanl = pd.read_excel(r'Data/Public_transport.xlsx', sheet_name='percent_normal')
-percent_normanl.set_index('Province', inplace = True)
+percent_normal = pd.read_excel(r'Data/Public_transport.xlsx', sheet_name='percent_normal')
+percent_normal.set_index('Province', inplace = True)
 
 number_normal = pd.read_excel(r'Data/Public_transport.xlsx', sheet_name='number_normal')
 number_normal.set_index('Province', inplace=True)
@@ -131,7 +131,7 @@ elif choice_selected1 == 'normal person' and choice_selected2 == 'percentage of 
     left_column1, right_column1 = st.columns([1, 1])
     choice3 = ['All public transportation', 'Bus', 'Ferry', 'Railway', 'Train']
     choice_selected3 = left_column1.selectbox("Select the type of public transportration", choice3)
-    df = percent_dis
+    df = percent_normal
     st.write('The percentage of people can access to public transportration in BMR during 2020')
     col3, col4 = st.columns([1, 1])
     with col3 :
