@@ -157,6 +157,7 @@ elif choice_selected1 == 'normal person' and choice_selected2 == 'percentage of 
         )
         fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
         st.plotly_chart(fig)
+        '''
     with col2:
         fig2 = go.Figure()
         if choice_selected1 == 'normal person':
@@ -181,7 +182,7 @@ elif choice_selected1 == 'normal person' and choice_selected2 == 'percentage of 
                 margin=dict(l=50, r=50, t=50, b=50)
             )
             st.plotly_chart(fig2)
-
+'''
 elif choice_selected1 == 'disabled person' and choice_selected2 == 'number of people':
     left_column1, right_column1 = st.columns([1, 1])
     choice3 = ['All public transportation', 'Bus','Railway']
