@@ -162,7 +162,7 @@ fig2.update_layout(
     legend=dict(
         orientation="h",
         yanchor="bottom",
-        y=1.02,
+        y=0,
         xanchor="right",
         x=1
     ),
@@ -207,7 +207,7 @@ fig3.update_layout(
     legend=dict(
         orientation="h",
         yanchor="bottom",
-        y=1.02,
+        y=0,
         xanchor="right",
         x=1
     ),
