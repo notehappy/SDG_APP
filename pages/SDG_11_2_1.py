@@ -194,8 +194,8 @@ elif choice_selected1 == 'normal person' and choice_selected2 == 'percentage of 
                 )
             # fig2.update_layout(barmode="stack")
             fig2.update_layout(
-                paper_bgcolor="#E3E3E3",
-                plot_bgcolor="#D5FABD",
+               paper_bgcolor="#E3E3E3",
+                plot_bgcolor="#FFFFFF",
                 # width=900,
                 # height=1000,
                 # title={'text' : f"SDG 11.2.1 assessment and related value by selecting province in Thailand"
@@ -258,7 +258,7 @@ elif choice_selected1 == 'disabled person' and choice_selected2 == 'number of pe
             # fig2.update_layout(barmode="stack")
             fig2.update_layout(
                 paper_bgcolor="#E3E3E3",
-                plot_bgcolor="#D5FABD",
+                plot_bgcolor="#FFFFFF",
                 # width=900,
                 # height=1000,
                 # title={'text' : f"SDG 11.2.1 assessment and related value by selecting province in Thailand"
@@ -319,7 +319,7 @@ elif choice_selected1 == 'disabled person' and choice_selected2 == 'percentage o
             # fig2.update_layout(barmode="stack")
             fig2.update_layout(
                 paper_bgcolor="#E3E3E3",
-                plot_bgcolor="#D5FABD",
+                plot_bgcolor="#FFFFFF",
                 # width=900,
                 # height=1000,
                 # title={'text' : f"SDG 11.2.1 assessment and related value by selecting province in Thailand"
