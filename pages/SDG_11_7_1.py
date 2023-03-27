@@ -119,6 +119,7 @@ st.plotly_chart(fig1)
 # =============================================================================
 # Bar plot
 # =============================================================================
+st.subheader('SDG 11.7.1 assessment for public green area in Bangkok')
 fig1 = go.Figure()
 assessment = ['SDG 11.7.1', 'BKK assessment']
 for item in assessment:
@@ -138,7 +139,7 @@ fig1.update_layout(
     plot_bgcolor="#f9e5e5",
     width=1200,
     height=600,
-    title={'text' : f"An assessment of Thailand was conducting using the model developing of this study."
+    title={'text' : f"An assessment of public green area in Bangkok for SDG 11.7.1."
            ,'x': 0.5, # Set the x anchor to the center of the chart
            'xanchor': 'center'},
     legend=dict(
@@ -148,8 +149,9 @@ fig1.update_layout(
         xanchor="right",
         x=1
     ),
-    xaxis_title='X-Axis Label',
-    yaxis_title='Y-Axis Label',
+    xaxis_title='Year',
+    yaxis_title='SDG 11.7.1 Assessment',
     margin=dict(l=50, r=50, t=50, b=50)
 )
 st.plotly_chart(fig1)
+
