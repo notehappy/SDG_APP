@@ -139,12 +139,14 @@ if choice_selected1 == 'normal person' and choice_selected2 == 'number of people
                 #     'xanchor': 'center'},
                 margin=dict(l=50, r=50, t=50, b=50),
                 legend=dict(
-                orientation="h",
-                yanchor="bottom",
-                y=1.02,
-                xanchor="right",
-                x=1
-            )
+                    orientation="h",
+                    yanchor="bottom",
+                    y=1.02,
+                    xanchor="right",
+                    x=1
+                ),
+                xaxis_title='Year',
+                yaxis_title='Number of people can access public transportration (people)',
             )
             st.plotly_chart(fig2)
     
@@ -203,12 +205,14 @@ elif choice_selected1 == 'normal person' and choice_selected2 == 'percentage of 
                 #     'xanchor': 'center'},
                 margin=dict(l=50, r=50, t=50, b=50),
                 legend=dict(
-                orientation="h",
-                yanchor="bottom",
-                y=1.02,
-                xanchor="right",
-                x=1
-            )
+                    orientation="h",
+                    yanchor="bottom",
+                    y=1.02,
+                    xanchor="right",
+                    x=1
+                ),
+                xaxis_title='Year',
+                yaxis_title='Percentage of people can access public transportration (people)',
             )
             st.plotly_chart(fig2)
 
@@ -266,12 +270,14 @@ elif choice_selected1 == 'disabled person' and choice_selected2 == 'number of pe
                 #     'xanchor': 'center'},
                 margin=dict(l=50, r=50, t=50, b=50),
                 legend=dict(
-                orientation="h",
-                yanchor="bottom",
-                y=1.02,
-                xanchor="right",
-                x=1
-            )
+                    orientation="h",
+                    yanchor="bottom",
+                    y=1.02,
+                    xanchor="right",
+                    x=1
+                ),
+                xaxis_title='Year',
+                yaxis_title='Number of people with disable can access public transportration (people)',
             )
             st.plotly_chart(fig2)
 elif choice_selected1 == 'disabled person' and choice_selected2 == 'percentage of people':
@@ -327,11 +333,13 @@ elif choice_selected1 == 'disabled person' and choice_selected2 == 'percentage o
                 #     'xanchor': 'center'},
                 margin=dict(l=50, r=50, t=50, b=50),
                 legend=dict(
-                orientation="h",
-                yanchor="bottom",
-                y=1.02,
-                xanchor="right",
-                x=1
-            )
+                    orientation="h",
+                    yanchor="bottom",
+                    y=1.02,
+                    xanchor="right",
+                    x=1
+                ),
+                xaxis_title='Year',
+                yaxis_title='Percentage of people with disable can access public transportration (people)',
             )
             st.plotly_chart(fig2)
