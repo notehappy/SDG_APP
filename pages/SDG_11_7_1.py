@@ -53,12 +53,13 @@ fig1 = go.Figure()
 assessment = ['SDG 11.7.1', 'BKK assessment']
 for item in assessment:
     fig1.add_trace(
-        go.Bar(
+        go.Scatter(
             x=df.index,
             y=df[item],
-            hovertemplate="%{y:.2f}",
+            # hovertemplate="%{y:.2f}",
             # showlegend=False,
-            name=item,
+            # name=item,
+            mode='lines'
         ),
     )
 fig1.update_layout(barmode="stack")
