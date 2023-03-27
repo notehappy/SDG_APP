@@ -115,7 +115,7 @@ for item in province:
             name=item,
         ),
     )
-fig1.update_layout(barmode="stack")
+# fig1.update_layout(barmode="stack")
 fig1.update_layout(
     paper_bgcolor="#E3E3E3",
     plot_bgcolor="#FFFFFF",
