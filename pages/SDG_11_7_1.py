@@ -47,6 +47,43 @@ df['BKK assessment'] = df['Total park area'] * 100 / df['Bangkok area']
 df.set_index('Year', inplace=True)
 
 # =============================================================================
+# Data collection explaination
+# =============================================================================
+st.subheader('Data Visualization')
+st.write('The green area in Bangkok')
+fig1 = go.Figure()
+fig1.add_trace(
+        go.Scatter(
+            x=df.index,
+            y=df['Total park area'],
+            # hovertemplate="%{y:.2f}",
+            # showlegend=False,
+            name='Total park area',
+            mode='lines'
+        ),
+    )
+fig1.update_layout(barmode="stack")
+fig1.update_layout(
+    paper_bgcolor="#bcbcbc",
+    plot_bgcolor="#f9e5e5",
+    width=1200,
+    height=600,
+    title={'text' : f"An assessment of Thailand was conducting using the model developing of this study."
+           ,'x': 0.5, # Set the x anchor to the center of the chart
+           'xanchor': 'center'},
+    legend=dict(
+        orientation="h",
+        yanchor="bottom",
+        y=1.02,
+        xanchor="right",
+        x=1
+    ),
+    margin=dict(l=50, r=50, t=50, b=50)
+)
+st.plotly_chart(fig1)
+
+
+# =============================================================================
 # Bar plot
 # =============================================================================
 fig1 = go.Figure()
