@@ -50,7 +50,6 @@ df.set_index('Year', inplace=True)
 # Data collection explaination
 # =============================================================================
 st.subheader('Data Visualization')
-st.write('The green area in Bangkok')
 fig1 = go.Figure()
 fig1.add_trace(
         go.Scatter(
@@ -68,7 +67,7 @@ fig1.update_layout(
     plot_bgcolor="#f9e5e5",
     width=1200,
     height=600,
-    title={'text' : f"An assessment of Thailand was conducting using the model developing of this study."
+    title={'text' : f"The public green area in Bangkok (square meters)"
            ,'x': 0.5, # Set the x anchor to the center of the chart
            'xanchor': 'center'},
     legend=dict(
@@ -79,12 +78,44 @@ fig1.update_layout(
         x=1
     ),
     xaxis_title='Year',
-    yaxis_title='The public green area in Bangkok',
+    yaxis_title='The public green area in Bangkok (square meters)',
     margin=dict(l=50, r=50, t=50, b=50)
 )
 st.plotly_chart(fig1)
 
 
+fig1 = go.Figure()
+fig1.add_trace(
+        go.Scatter(
+            x=df.index,
+            y=df['Population Data'],
+            # hovertemplate="%{y:.2f}",
+            # showlegend=False,
+            name='Population Data',
+            mode='lines'
+        ),
+    )
+fig1.update_layout(barmode="stack")
+fig1.update_layout(
+    paper_bgcolor="#bcbcbc",
+    plot_bgcolor="#f9e5e5",
+    width=1200,
+    height=600,
+    title={'text' : f"The population number of people in Bangkok (people)."
+           ,'x': 0.5, # Set the x anchor to the center of the chart
+           'xanchor': 'center'},
+    legend=dict(
+        orientation="h",
+        yanchor="bottom",
+        y=1.02,
+        xanchor="right",
+        x=1
+    ),
+    xaxis_title='Year',
+    yaxis_title='The population number of people in Bangkok (people)',
+    margin=dict(l=50, r=50, t=50, b=50)
+)
+st.plotly_chart(fig1)
 # =============================================================================
 # Bar plot
 # =============================================================================
