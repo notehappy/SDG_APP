@@ -82,6 +82,7 @@ if st.checkbox("Show Map"):
             # zmax=500000,
             marker_opacity=0.5,
             marker_line_width=0,
+            name = 'PM 2.5 concentration (µg/m3)'
         )
     )
     fig.update_layout(
@@ -131,6 +132,8 @@ fig1.update_layout(
         xanchor="right",
         x=1
     ),
+    xaxis_title='Year',
+    yaxis_title='PM2.5 concentration (micrograms per cubic meter)',
     margin=dict(l=50, r=50, t=50, b=50)
 )
 st.plotly_chart(fig1)
@@ -166,6 +169,8 @@ fig2.update_layout(
         xanchor="right",
         x=1
     ),
+    xaxis_title='Year',
+    yaxis_title='PM2.5 concentration (micrograms per cubic meter)',
     margin=dict(l=50, r=50, t=50, b=50)
 )
 st.plotly_chart(fig2)
@@ -178,19 +183,21 @@ st.plotly_chart(fig2)
 st.header("Accuracy of Predicted PM2.5 concentration model comparing with PCD monitoring data")
 fig3 = go.Figure()
 fig3.add_trace(
-    go.Bar(
+    go.Scatter(
         x=accuracy.index,
         y=accuracy['Predicted_PM2.5'],
         hovertemplate="%{y:.2f}",
         name='Predicted_PM2.5',
+        mode = 'lines'
     )  
 )
 fig3.add_trace(
-    go.Bar( x=accuracy.index,
+    go.Scatter( x=accuracy.index,
         y=accuracy['PM2.5_station'],
         hovertemplate="%{y:.2f}",
         # showlegend=False,
         name='PM2.5_station',
+        mode = 'lines'
          ),
     
 )
@@ -211,8 +218,9 @@ fig3.update_layout(
         xanchor="right",
         x=1
     ),
+    xaxis_title='Year',
+    yaxis_title='PM2.5 concentration (micrograms per cubic meter)',
     margin=dict(l=50, r=50, t=50, b=50)
 )
 st.plotly_chart(fig3)
 st.caption('Accuracy of model (RMSE = 15.56 µg/m3 and R2 = 0.54)')
-    
