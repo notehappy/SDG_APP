@@ -40,7 +40,7 @@ st.write("* For more information and detail contact: ekbordinw@ait.asia")
 # =============================================================================
 # Data downloading
 # =============================================================================
-df = pd.read_excel(r'Data/reen_area.xlsx')
+df = pd.read_excel(r'Data/green_area.xlsx')
 df['Year'] = pd.to_datetime(df['Year'], format='%Y')
 df['SDG 11.7.1'] = (df['Total park area'] + df['Area of roads'])*100 / df['Bangkok area']
 df['BKK assessment'] = df['Total park area'] * 100 / df['Bangkok area']
