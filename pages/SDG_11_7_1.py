@@ -58,7 +58,7 @@ for item in assessment:
             y=df[item],
             # hovertemplate="%{y:.2f}",
             # showlegend=False,
-            # name=item,
+            name=item,
             mode='lines'
         ),
     )
