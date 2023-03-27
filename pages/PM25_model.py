@@ -118,7 +118,7 @@ for item in province:
 fig1.update_layout(barmode="stack")
 fig1.update_layout(
     paper_bgcolor="#E3E3E3",
-    plot_bgcolor="#D5FABD",
+    plot_bgcolor="#FFFFFF",
     width=1200,
     height=600,
     title={'text' : f"Average value of PM2.5 concentration using the model developing of this study."
