@@ -36,3 +36,47 @@ st.write("* All of data was collected by Bangkok Metropolitan Administration (BM
 # Information about the researchers
 st.write("* The researchers responsible for Indicator 11.7.1 were Associate Professor Dr. Ekebodin Winijkul and Mr. Pongsakorn Punpukdee.")
 st.write("* For more information and detail contact: ekbordinw@ait.asia")
+
+# =============================================================================
+# Data downloading
+# =============================================================================
+df = pd.read_excel(r'Data\green_area.xlsx')
+df['Year'] = pd.to_datetime(df['Year'], format='%Y')
+df['SDG 11.7.1'] = (df['Total park area'] + df['Area of roads'])*100 / df['Bangkok area']
+df['BKK assessment'] = df['Total park area'] * 100 / df['Bangkok area']
+df.set_index('Year', inplace=True)
+
+# =============================================================================
+# Bar plot
+# =============================================================================
+fig1 = go.Figure()
+assessment = ['SDG 11.7.1', 'BKK assessment']
+for item in assessment:
+    fig1.add_trace(
+        go.Bar(
+            x=df.index,
+            y=df[item],
+            hovertemplate="%{y:.2f}",
+            # showlegend=False,
+            name=item,
+        ),
+    )
+fig1.update_layout(barmode="stack")
+fig1.update_layout(
+    paper_bgcolor="#bcbcbc",
+    plot_bgcolor="#f9e5e5",
+    width=1200,
+    height=600,
+    title={'text' : f"An assessment of Thailand was conducting using the model developing of this study."
+           ,'x': 0.5, # Set the x anchor to the center of the chart
+           'xanchor': 'center'},
+    legend=dict(
+        orientation="h",
+        yanchor="bottom",
+        y=1.02,
+        xanchor="right",
+        x=1
+    ),
+    margin=dict(l=50, r=50, t=50, b=50)
+)
+st.plotly_chart(fig1)
