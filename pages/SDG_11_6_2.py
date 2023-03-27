@@ -123,7 +123,7 @@ for item in province:
 fig1.update_layout(barmode="stack")
 fig1.update_layout(
     paper_bgcolor="#E3E3E3",
-    plot_bgcolor="#D5FABD",
+    plot_bgcolor="#FFFFFF",
     width=1200,
     height=600,
     title={'text' : f"An assessment of Thailand was conducting using the model developing of this study."
@@ -136,6 +136,8 @@ fig1.update_layout(
         xanchor="right",
         x=1
     ),
+    xaxis_title='Year',
+    yaxis_title='SDG 11.6.2 assessment',
     margin=dict(l=50, r=50, t=50, b=50)
 )
 st.plotly_chart(fig1)
@@ -166,6 +168,8 @@ fig2.update_layout(
     title={'text' : f"An assessment of Thailand was conducting using the model developing of this study."
            ,'x': 0.5, # Set the x anchor to the center of the chart
            'xanchor': 'center'},
+    xaxis_title='Year',
+    yaxis_title='SDG 11.6.2 assessment',
     margin=dict(l=50, r=50, t=50, b=50)
 )
 st.plotly_chart(fig2)

@@ -173,6 +173,7 @@ fig1.update_layout(
     title={'text' : f"SDG 11.3.1 assessment and related value by selecting province in Thailand"
            ,'x': 0.5, # Set the x anchor to the center of the chart
            'xanchor': 'center'},
+    xaxis_title='Year',
     margin=dict(l=50, r=50, t=50, b=50)
 )
 st.plotly_chart(fig1)
