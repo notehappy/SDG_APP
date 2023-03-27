@@ -136,7 +136,7 @@ for item in assessment:
 fig1.update_layout(barmode="stack")
 fig1.update_layout(
     paper_bgcolor="#bcbcbc",
-    plot_bgcolor="#f9e5e5",
+    plot_bgcolor="#D5FABD",
     width=1200,
     height=600,
     title={'text' : f"An assessment of public green area in Bangkok for SDG 11.7.1."
