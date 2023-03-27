@@ -24,7 +24,7 @@ st.sidebar.markdown("SDG 11.3.1 Assessment")
 # =============================================================================
 image = r'Image/banner.png'
 st.image(image)
-st.title("PM2.5 concentration in Thailand using PM2.5 model of study")
+st.title("Average share of the built-up area of cities that is open space for public use")
 
 # =============================================================================
 # Description
