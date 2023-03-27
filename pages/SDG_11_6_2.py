@@ -117,9 +117,11 @@ fig1.update_layout(barmode="stack")
 fig1.update_layout(
     paper_bgcolor="#bcbcbc",
     plot_bgcolor="#f9e5e5",
-    width=800,
+    width=1200,
     height=600,
-    title=f"An assessment of Thailand was conducting using the model developing of this study.",
+    title={'text' : f"An assessment of Thailand was conducting using the model developing of this study."
+           ,'x': 0.5, # Set the x anchor to the center of the chart
+           'xanchor': 'center'},
     margin=dict(l=50, r=50, t=50, b=50)
 )
 st.plotly_chart(fig1)
@@ -145,9 +147,11 @@ fig2 = go.Figure(
 fig2.update_layout(
     paper_bgcolor="#bcbcbc",
     plot_bgcolor="#f9e5e5",
-    width=800,
+    width=1200,
     height=600,
-    title=f"An assessment of Thailand was conducting using the model developing of this study.",
+    title={'text' : f"An assessment of Thailand was conducting using the model developing of this study."
+           ,'x': 0.5, # Set the x anchor to the center of the chart
+           'xanchor': 'center'},
     margin=dict(l=50, r=50, t=50, b=50)
 )
 st.plotly_chart(fig2)
