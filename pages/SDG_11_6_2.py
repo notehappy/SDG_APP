@@ -122,8 +122,8 @@ for item in province:
     )
 fig1.update_layout(barmode="stack")
 fig1.update_layout(
-    paper_bgcolor="#bcbcbc",
-    plot_bgcolor="#f9e5e5",
+    paper_bgcolor="#E3E3E3",
+    plot_bgcolor="#D5FABD",
     width=1200,
     height=600,
     title={'text' : f"An assessment of Thailand was conducting using the model developing of this study."
@@ -159,8 +159,8 @@ fig2 = go.Figure(
      ),
  )
 fig2.update_layout(
-    paper_bgcolor="#bcbcbc",
-    plot_bgcolor="#f9e5e5",
+    paper_bgcolor="#E3E3E3",
+    plot_bgcolor="#D5FABD",
     width=1200,
     height=600,
     title={'text' : f"An assessment of Thailand was conducting using the model developing of this study."

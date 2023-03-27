@@ -166,8 +166,8 @@ for para in parameter:
         )
 fig1.update_layout(barmode="stack")
 fig1.update_layout(
-    paper_bgcolor="#bcbcbc",
-    plot_bgcolor="#f9e5e5",
+    paper_bgcolor="#E3E3E3",
+    plot_bgcolor="#D5FABD",
     width=1200,
     height=900,
     title={'text' : f"SDG 11.3.1 assessment and related value by selecting province in Thailand"
