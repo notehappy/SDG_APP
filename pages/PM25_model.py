@@ -153,7 +153,7 @@ fig2 = go.Figure(
  )
 fig2.update_layout(
     paper_bgcolor="#E3E3E3",
-    plot_bgcolor="#D5FABD",
+    plot_bgcolor="#FFFFFF",
     width=1200,
     height=600,
     title={'text' : f"An assessment of Thailand was conducting using the model developing of this study"
@@ -198,7 +198,7 @@ fig3.add_trace(
 fig3.update_layout(barmode="stack")
 fig3.update_layout(
     paper_bgcolor="#E3E3E3",
-    plot_bgcolor="#D5FABD",
+    plot_bgcolor="#FFFFFF",
     width=1200,
     height=600,
     title={'text' : f"Accuracy model of Predicted PM2.5 concentration."
