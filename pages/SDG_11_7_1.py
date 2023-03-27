@@ -78,6 +78,8 @@ fig1.update_layout(
         xanchor="right",
         x=1
     ),
+    xaxis_title='Year',
+    yaxis_title='The public green area in Bangkok',
     margin=dict(l=50, r=50, t=50, b=50)
 )
 st.plotly_chart(fig1)
@@ -115,6 +117,8 @@ fig1.update_layout(
         xanchor="right",
         x=1
     ),
+    xaxis_title='X-Axis Label',
+    yaxis_title='Y-Axis Label',
     margin=dict(l=50, r=50, t=50, b=50)
 )
 st.plotly_chart(fig1)
