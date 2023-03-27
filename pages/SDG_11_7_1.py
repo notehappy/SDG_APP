@@ -101,7 +101,7 @@ fig1.update_layout(
     plot_bgcolor="#f9e5e5",
     width=1200,
     height=600,
-    title={'text' : f"The population number of people in Bangkok (people)."
+    title={'text' : f"The population number of people in Bangkok (people)"
            ,'x': 0.5, # Set the x anchor to the center of the chart
            'xanchor': 'center'},
     legend=dict(
