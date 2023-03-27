@@ -135,7 +135,7 @@ for item in assessment:
     )
 fig1.update_layout(barmode="stack")
 fig1.update_layout(
-    paper_bgcolor="#bcbcbc",
+    paper_bgcolor="#E3E3E3",
     plot_bgcolor="#D5FABD",
     width=1200,
     height=600,
