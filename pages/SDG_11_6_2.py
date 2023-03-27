@@ -88,6 +88,13 @@ if st.checkbox("Show Map"):
         mapbox_center={"lat": 13.72917, "lon": 100.52389},
         width=800,
         height=600,
+        legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=1.02,
+            xanchor="right",
+            x=1
+    ),
     )
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
     st.plotly_chart(fig)
@@ -122,6 +129,13 @@ fig1.update_layout(
     title={'text' : f"An assessment of Thailand was conducting using the model developing of this study."
            ,'x': 0.5, # Set the x anchor to the center of the chart
            'xanchor': 'center'},
+    legend=dict(
+        orientation="h",
+        yanchor="bottom",
+        y=1.02,
+        xanchor="right",
+        x=1
+    ),
     margin=dict(l=50, r=50, t=50, b=50)
 )
 st.plotly_chart(fig1)
