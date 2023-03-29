@@ -343,3 +343,11 @@ elif choice_selected1 == 'disabled person' and choice_selected2 == 'percentage o
                 yaxis_title='Percentage of people with disable can access public transportration (people)',
             )
             st.plotly_chart(fig2)
+
+# =============================================================================
+# Age range
+# =============================================================================
+data = {'Age group' : {'Children' , 'Adults', 'Older Adults', 'Nonidentified'},
+        'Age range (year)' : {'0 - 14', '15 - 59', 'more than 60', ' - '}}
+data = pd.DataFrame(data)
+st.dataframe(data)
