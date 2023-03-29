@@ -347,7 +347,8 @@ elif choice_selected1 == 'disabled person' and choice_selected2 == 'percentage o
 # =============================================================================
 # Age range
 # =============================================================================
-data = {'Age group' : {'Children' , 'Adults', 'Older Adults', 'Nonidentified'},
-        'Age range (year)' : {'0 - 14', '15 - 59', 'more than 60', ' - '}}
+data = {'Age group' : ['Children' , 'Adults', 'Older Adults', 'Nonidentified'],
+        'Age range (year)' : ['0 - 14', '15 - 59', 'more than 60', ' - ']}
 data = pd.DataFrame(data)
+data.set_index('Age group', inplace=True)
 st.dataframe(data)
