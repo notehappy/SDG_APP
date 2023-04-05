@@ -30,8 +30,8 @@ st.title("Emission Real-time from active fire using VIIRS sensor in Lampang")
 # Data Downloading
 # =============================================================================
 
-df = pd.read_csv(r'Data\emssion_lampang.csv')
-json1 = r"Data\Grid_Lampang_WGS.geojson"
+df = pd.read_csv(r'Data/emssion_lampang.csv')
+json1 = r"Data/Grid_Lampang_WGS.geojson"
 with open(json1) as response:
     geo = json.load(response)
 
