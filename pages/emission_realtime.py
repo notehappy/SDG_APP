@@ -31,6 +31,7 @@ st.title("Emission Real-time from active fire using VIIRS sensor in Lampang")
 # =============================================================================
 
 df = pd.read_csv(r'Data/emssion_lampang.csv')
+df.set_index('Date_Time', inplace=True)
 json1 = r"Data/Grid_Lampang_WGS.geojson"
 with open(json1) as response:
     geo = json.load(response)
@@ -41,15 +42,18 @@ with open(json1) as response:
 st.header('Our study model was used to determine the monthly average PM2.5 concentration in various provinces throughout Thailand.')
 st.warning('Caution: The spatial map may take some time to process and may result in a timelapse.')
 left_column, right_column = st.columns([1, 1])
-choice = df.columns[1:]
-choice_selected = left_column.selectbox("Select monthly and year average", choice)
+choice = df.index.unique()
+choice_selected = left_column.selectbox("Select time for show distribution", choice)
+choice1 = df.columns[1:]
+choice_selected1 = right_column.selectbox("Select air pollutant types", choice1)
+df1 = df[choice_selected]
 # Geographic Map
 fig = go.Figure(
     go.Choroplethmapbox(
         geojson= geo,
         locations=df['Id'],
         featureidkey="properties.Id",
-        z=df[choice_selected],
+        z=df1[choice_selected1],
         colorscale="sunsetdark",
         # zmin=0,
         # zmax=500000,
@@ -61,7 +65,7 @@ fig = go.Figure(
 fig.update_layout(
     mapbox_style="carto-positron",
     mapbox_zoom=4.8,
-    mapbox_center={"lat": 13.72917, "lon": 100.52389},
+    mapbox_center={"lat": 18.34, "lon": 99.5},
     width=800,
     height=600,
 )
