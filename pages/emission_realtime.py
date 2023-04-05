@@ -46,7 +46,7 @@ choice = df.index.unique()
 choice_selected = left_column.selectbox("Select time for show distribution", choice)
 choice1 = df.columns[1:]
 choice_selected1 = right_column.selectbox("Select air pollutant types", choice1)
-df1 = df[choice_selected]
+df1 = df.loc[choice_selected]
 # Geographic Map
 fig = go.Figure(
     go.Choroplethmapbox(
