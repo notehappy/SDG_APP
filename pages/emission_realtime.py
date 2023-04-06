@@ -125,3 +125,4 @@ with right_column1:
     xaxis_title='Types of emission detected by VIIRS ',
     yaxis_title='Amount of emission in Kg',
     )
+    st.plotly_chart(fig2)
