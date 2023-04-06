@@ -57,7 +57,7 @@ with open(json1) as response:
 st.header('Air emissions from Active Fires Detected by VIIRS Sensor in Lampand based on Real-time')
 st.warning('Caution: The spatial map may take some time to process and may result in a timelapse.')
 left_column, right_column = st.columns([1, 1])
-choice = df.index.unique()
+choice = [df.index.unique()].sort()
 choice_selected = left_column.selectbox("Select time for show distribution", choice)
 choice1 = df.columns[1:]
 choice_selected1 = right_column.selectbox("Select air pollutant types", choice1)
