@@ -151,7 +151,7 @@ de2 = pd.DataFrame(de2.sum(), columns=['emisson (Kg)'])
 st.write(f'{style_title_graph}<p class="center-text bold-color-text">"{choice_selected4} Emissions from Active Fires Detected by MODIS Sensor in Lampand on {choice_selected3}"</p>', unsafe_allow_html=True)
 left_column1, right_column1 = st.columns([1, 1])
 with left_column1:
-    fig = go.Figure(
+    fig3 = go.Figure(
         go.Choroplethmapbox(
             geojson= geo,
             locations=de['Id'],
@@ -166,18 +166,18 @@ with left_column1:
             colorbar=dict(title="Unit of Kg")
         )
     )
-    fig.update_layout(
+    fig3.update_layout(
         mapbox_style="carto-positron",
         mapbox_zoom=7,
         mapbox_center={"lat": 18.34, "lon": 99.5},
         # width=800,
         # height=600,
     )
-    fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
-    st.plotly_chart(fig)
+    fig3.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
+    st.plotly_chart(fig3)
 
 with right_column1:
-    fig2 = go.Figure()
+    fig4 = go.Figure()
     for i in range(de2.shape[0]):
         fig2.add_trace(
             go.Bar(
@@ -188,7 +188,7 @@ with right_column1:
         ),
         )
     # fig2.update_layout(barmode="stack")
-    fig2.update_layout(
+    fig4.update_layout(
     paper_bgcolor="#E3E3E3",
     plot_bgcolor="#FFFFFF",
     # width=900,
@@ -207,4 +207,4 @@ with right_column1:
     xaxis_title='Types of emission detected by VIIRS ',
     yaxis_title='Amount of emission in Kg',
     )
-    st.plotly_chart(fig2)
+    st.plotly_chart(fig4)
