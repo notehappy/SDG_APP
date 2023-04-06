@@ -89,8 +89,8 @@ with left_column1:
         mapbox_style="carto-positron",
         mapbox_zoom=7,
         mapbox_center={"lat": 18.34, "lon": 99.5},
-        width=800,
-        height=600,
+        # width=800,
+        # height=600,
     )
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
     st.plotly_chart(fig)
