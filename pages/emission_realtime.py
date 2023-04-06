@@ -100,7 +100,7 @@ with right_column1:
     fig2.add_trace(
         go.Bar(
             x=df2.index,
-            y=df2['emisson(Kg)'],
+            y=df2['emisson (Kg)'],
             hovertemplate="%{y:.2f}",
             name= f'Kg',
     ),
