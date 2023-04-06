@@ -63,6 +63,7 @@ de.set_index('Date_Time', inplace=True)
 json1 = r"Data/Grid_Lampang_WGS.geojson"
 with open(json1) as response:
     geo = json.load(response)
+compare = pd.read_csv(r'Data/comparing_VIIRS_MODIS_18_20.csv', index_col= 'Unnamed: 0')
 
 # =============================================================================
 # Map graphice for VIIRS
@@ -219,3 +220,47 @@ with right_column1:
     yaxis_title='Amount of emission in Kg',
     )
     st.plotly_chart(fig4)
+
+# =============================================================================
+# Bar plot comparing MODIS and VIIRS
+# =============================================================================
+st.header("Comparison of Burn Area Estimates between MODIS and VIIRS Sensors for 2018-2020")
+fig5 = go.Figure()
+
+fig5.add_trace(
+    go.Bar(
+        x=compare.index,
+        y=compare['VIIRS_AREA (km2)'],
+        hovertemplate="%{y:.2f}",
+        name= f'{de2.index[i]}',
+),
+)
+fig5.add_trace(
+    go.Bar(
+        x=compare.index,
+        y=compare['MODIS_AREA (km2)'],
+        hovertemplate="%{y:.2f}",
+        name= f'{de2.index[i]}',
+),
+)
+# fig2.update_layout(barmode="stack")
+fig5.update_layout(
+    paper_bgcolor="#E3E3E3",
+    plot_bgcolor="#FFFFFF",
+    # width=900,
+    # height=1000,
+    # title={'text' : f"SDG 11.2.1 assessment and related value by selecting province in Thailand"
+    #     ,'x': 0.5, # Set the x anchor to the center of the chart
+    #     'xanchor': 'center'},
+    margin=dict(l=50, r=50, t=50, b=50),
+    legend=dict(
+        orientation="h",
+        yanchor="bottom",
+        y=1.02,
+        xanchor="right",
+        x=1
+    ),
+    xaxis_title='Types of emission detected by MODIS ',
+    yaxis_title='Amount of emission in Kg',
+)
+st.plotly_chart(fig5)
