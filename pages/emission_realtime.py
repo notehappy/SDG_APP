@@ -141,7 +141,7 @@ choice2 = de.index.unique()
 choice2 = choice2.sort_values(ascending=False)
 choice_selected2 = left_column2.selectbox("Select time for show distribution", choice2)
 choice3 = de.columns[1:]
-choice_selected3 = st.selectbox("Select air pollutant types", choice3)
+choice_selected3 = right_column2.selectbox("Select air pollutant types", choice3, key='option1')
 de1 = de.loc[choice_selected3]
 
 de2 = de1
