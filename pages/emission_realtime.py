@@ -23,7 +23,7 @@ st.sidebar.markdown("Emission Real-time")
 # =============================================================================
 image = r'Image/banner.png'
 st.image(image)
-st.title("Emission Real-time from active fire using VIIRS sensor in Lampang")
+st.title("Emission Real-time from active fire using VIIRS, MODIS and Himawari sensor in Lampang")
 
 # =============================================================================
 # Text style
@@ -45,7 +45,7 @@ style_title_graph = '''
 # Data Downloading
 # =============================================================================
 
-df = pd.read_csv(r'Data/emssion_lampang.csv')
+df = pd.read_csv(r'Data/emssion_lampang_viirs.csv')
 df.set_index('Date_Time', inplace=True)
 json1 = r"Data/Grid_Lampang_WGS.geojson"
 with open(json1) as response:
