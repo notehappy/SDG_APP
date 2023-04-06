@@ -118,7 +118,7 @@ with right_column1:
     margin=dict(l=50, r=50, t=50, b=50),
     legend=dict(
         orientation="h",
-        yanchor="bottom",
+        yanchor="top",
         y=1.02,
         xanchor="right",
         x=1
