@@ -65,7 +65,7 @@ df1 = df.loc[choice_selected]
 
 df2 = df1
 df2.drop('Id', axis = 1, inplace = True)
-df2 = pd.DataFrame(df1.sum(), columns=['emisson (Kg)'])
+df2 = pd.DataFrame(df2.sum(), columns=['emisson (Kg)'])
 # Geographic Map
 st.write(f'{style_title_graph}<p class="center-text bold-color-text">"{choice_selected1} Emissions from Active Fires Detected by VIIRS Sensor in Lampand on {choice_selected}"</p>', unsafe_allow_html=True)
 left_column1, right_column1 = st.columns([1, 1])
