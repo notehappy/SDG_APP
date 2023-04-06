@@ -90,3 +90,34 @@ with left_column1:
     )
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
     st.plotly_chart(fig)
+
+with right_column1:
+    fig2 = go.Figure()
+    fig2.add_trace(
+        go.Bar(
+            x=df1.index,
+            y=df1['emisson(Kg)'],
+            hovertemplate="%{y:.2f}",
+            name= f'Kg',
+    ),
+    )
+    # fig2.update_layout(barmode="stack")
+    fig2.update_layout(
+    paper_bgcolor="#E3E3E3",
+    plot_bgcolor="#FFFFFF",
+    # width=900,
+    # height=1000,
+    # title={'text' : f"SDG 11.2.1 assessment and related value by selecting province in Thailand"
+    #     ,'x': 0.5, # Set the x anchor to the center of the chart
+    #     'xanchor': 'center'},
+    margin=dict(l=50, r=50, t=50, b=50),
+    legend=dict(
+        orientation="h",
+        yanchor="bottom",
+        y=1.02,
+        xanchor="right",
+        x=1
+    ),
+    xaxis_title='Types of emission detected by VIIRS ',
+    yaxis_title='Amount of emission in Kg',
+    )
