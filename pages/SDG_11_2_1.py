@@ -104,6 +104,7 @@ if choice_selected1 == 'normal person' and choice_selected2 == 'number of people
                 # zmax=500000,
                 marker_opacity=0.5,
                 marker_line_width=0,
+                colorbar=dict(title="Unit of people")
             )
         )
         fig.update_layout(
@@ -170,6 +171,7 @@ elif choice_selected1 == 'normal person' and choice_selected2 == 'percentage of 
                 # zmax=500000,
                 marker_opacity=0.5,
                 marker_line_width=0,
+                colorbar=dict(title="Unit of percentage")
             )
         )
         fig.update_layout(
@@ -235,6 +237,7 @@ elif choice_selected1 == 'disabled person' and choice_selected2 == 'number of pe
                 # zmax=500000,
                 marker_opacity=0.5,
                 marker_line_width=0,
+                colorbar=dict(title="Unit of people")
             )
         )
         fig.update_layout(
@@ -299,6 +302,7 @@ elif choice_selected1 == 'disabled person' and choice_selected2 == 'percentage o
                 # zmax=500000,
                 marker_opacity=0.5,
                 marker_line_width=0,
+                colorbar=dict(title="Unit of percentage")
             )
         )
         fig.update_layout(

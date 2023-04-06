@@ -26,6 +26,17 @@ st.image(image)
 st.title("Emission Real-time from active fire using VIIRS, MODIS and Himawari sensor in Lampang")
 
 # =============================================================================
+# Description
+# =============================================================================
+st.subheader('Description')
+# Description of the website
+st.write("* This website presents Real-time emission using the active fire detected by VIIRS, MODIS and Himawari(developing) based on Real-time")
+# Information about the researchers
+st.write("* The researchers were Associate Professor Dr. Ekebodin Winijkul and Mr. Pongsakorn Punpukdee.")
+st.write("* For more information and detail contact: ekbordinw@ait.asia")
+
+
+# =============================================================================
 # Text style
 # =============================================================================
 # Set the CSS styles for bold text and a custom color
@@ -204,7 +215,7 @@ with right_column1:
         xanchor="right",
         x=1
     ),
-    xaxis_title='Types of emission detected by VIIRS ',
+    xaxis_title='Types of emission detected by MODIS ',
     yaxis_title='Amount of emission in Kg',
     )
     st.plotly_chart(fig4)

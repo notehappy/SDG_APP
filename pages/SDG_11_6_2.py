@@ -80,6 +80,7 @@ if st.checkbox("Show Map"):
             # zmax=500000,
             marker_opacity=0.5,
             marker_line_width=0,
+            colorbar=dict(title="Unit of µg/m3")
         )
     )
     fig.update_layout(
