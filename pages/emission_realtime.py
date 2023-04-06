@@ -48,6 +48,7 @@ style_title_graph = '''
 df = pd.read_csv(r'Data/emssion_lampang_viirs.csv')
 df.set_index('Date_Time', inplace=True)
 de = pd.read_csv(r'Data/emssion_lampang_modis.csv')
+de.set_index('Date_Time', inplace=True)
 json1 = r"Data/Grid_Lampang_WGS.geojson"
 with open(json1) as response:
     geo = json.load(response)
