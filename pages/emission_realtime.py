@@ -160,7 +160,7 @@ de2 = de1
 de2.drop('Id', axis = 1, inplace = True)
 de2 = pd.DataFrame(de2.sum(), columns=['emisson (Kg)'])
 # Geographic Map
-st.write(f'{style_title_graph}<p class="center-text bold-color-text">"{choice_selected4} Emissions from Active Fires Detected by MODIS Sensor in Lampand on {choice_selected3}"</p>', unsafe_allow_html=True)
+st.write(f'{style_title_graph}<p class="center-text bold-color-text">"{choice_selected4} Emissions from Active Fires Detected by MODIS Sensor in Lampang on {choice_selected3}"</p>', unsafe_allow_html=True)
 left_column1, right_column1 = st.columns([1, 1])
 with left_column1:
     fig3 = go.Figure(
@@ -263,4 +263,4 @@ fig5.update_layout(
     xaxis_title='Types of emission detected by MODIS ',
     yaxis_title='Amount of emission in Kg',
 )
-st.plotly_chart(fig5)
+st.plotly_chart(fig5, use_container_width=True)
