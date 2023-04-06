@@ -142,7 +142,7 @@ choice3 = choice3.sort_values(ascending=False)
 choice_selected3 = left_column.selectbox("Select time for show distribution", choice3)
 choice4 = de.columns[1:]
 choice_selected4 = right_column.selectbox("Select air pollutant types", choice4, key='option1')
-de1 = de.loc[choice_selected4]
+de1 = de.loc[choice_selected3]
 
 de2 = de1
 de2.drop('Id', axis = 1, inplace = True)
