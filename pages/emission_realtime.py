@@ -137,26 +137,26 @@ with right_column1:
 st.header('Air emissions from Active Fires Detected by MODIS Sensor in Lampand based on Real-time')
 st.warning('Caution: The spatial map may take some time to process and may result in a timelapse.')
 left_column2, right_column2 = st.columns([1, 1])
-choice2 = de.index.unique()
-choice2 = choice2.sort_values(ascending=False)
-choice_selected2 = left_column2.selectbox("Select time for show distribution", choice2)
-choice3 = de.columns[1:]
-choice_selected3 = right_column2.selectbox("Select air pollutant types", choice3, key='option1')
-de1 = de.loc[choice_selected3]
+choice3 = de.index.unique()
+choice3 = choice3.sort_values(ascending=False)
+choice_selected3 = left_column.selectbox("Select time for show distribution", choice3)
+choice4 = de.columns[1:]
+choice_selected4 = right_column.selectbox("Select air pollutant types", choice4, key='option1')
+de1 = de.loc[choice_selected4]
 
 de2 = de1
 de2.drop('Id', axis = 1, inplace = True)
 de2 = pd.DataFrame(de2.sum(), columns=['emisson (Kg)'])
 # Geographic Map
-st.write(f'{style_title_graph}<p class="center-text bold-color-text">"{choice_selected3} Emissions from Active Fires Detected by MODIS Sensor in Lampand on {choice_selected2}"</p>', unsafe_allow_html=True)
-left_column3, right_column3 = st.columns([1, 1])
-with left_column3:
-    fig2 = go.Figure(
+st.write(f'{style_title_graph}<p class="center-text bold-color-text">"{choice_selected1} Emissions from Active Fires Detected by VIIRS Sensor in Lampand on {choice_selected}"</p>', unsafe_allow_html=True)
+left_column1, right_column1 = st.columns([1, 1])
+with left_column1:
+    fig = go.Figure(
         go.Choroplethmapbox(
             geojson= geo,
             locations=de['Id'],
             featureidkey="properties.Id",
-            z=de1[choice_selected3],
+            z=de1[choice_selected1],
             colorscale="sunsetdark",
             # zmin=0,
             # zmax=500000,
@@ -166,20 +166,20 @@ with left_column3:
             colorbar=dict(title="Unit of Kg")
         )
     )
-    fig2.update_layout(
+    fig.update_layout(
         mapbox_style="carto-positron",
         mapbox_zoom=7,
         mapbox_center={"lat": 18.34, "lon": 99.5},
         # width=800,
         # height=600,
     )
-    fig2.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
-    st.plotly_chart(fig2)
+    fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
+    st.plotly_chart(fig)
 
 with right_column1:
-    fig3 = go.Figure()
+    fig2 = go.Figure()
     for i in range(de2.shape[0]):
-        fig3.add_trace(
+        fig2.add_trace(
             go.Bar(
                 x=[de2.index[i]],
                 y=[de2.iloc[i,0]],
@@ -188,7 +188,7 @@ with right_column1:
         ),
         )
     # fig2.update_layout(barmode="stack")
-    fig3.update_layout(
+    fig2.update_layout(
     paper_bgcolor="#E3E3E3",
     plot_bgcolor="#FFFFFF",
     # width=900,
@@ -207,4 +207,4 @@ with right_column1:
     xaxis_title='Types of emission detected by VIIRS ',
     yaxis_title='Amount of emission in Kg',
     )
-    st.plotly_chart(fig3)
+    st.plotly_chart(fig2)
