@@ -97,14 +97,15 @@ with left_column1:
 
 with right_column1:
     fig2 = go.Figure()
-    fig2.add_trace(
-        go.Bar(
-            x=df2.index,
-            y=df2['emisson (Kg)'],
-            hovertemplate="%{y:.2f}",
-            name= f'Kg',
-    ),
-    )
+    for i in range(df2.shape[0]):
+        fig2.add_trace(
+            go.Bar(
+                x=[df2.index[i]],
+                y=[df2.iloc[i,0]],
+                hovertemplate="%{y:.2f}",
+                name= f'{df2.index[i]}',
+        ),
+        )
     # fig2.update_layout(barmode="stack")
     fig2.update_layout(
     paper_bgcolor="#E3E3E3",
