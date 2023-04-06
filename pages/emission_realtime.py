@@ -56,7 +56,7 @@ with open(json1) as response:
 # =============================================================================
 # Map graphice for VIIRS
 # =============================================================================
-st.header('Air emissions from Active Fires Detected by VIIRS Sensor in Lampand based on Real-time')
+st.header('Air emissions from Active Fires Detected by VIIRS Sensor in Lampang based on Real-time')
 st.warning('Caution: The spatial map may take some time to process and may result in a timelapse.')
 left_column, right_column = st.columns([1, 1])
 choice = df.index.unique()
@@ -84,7 +84,7 @@ with left_column1:
             # zmax=500000,
             marker_opacity=0.5,
             marker_line_width=0,
-            name = 'PM 2.5 concentration (µg/m3)',
+            name = f'{choice_selected1} Emissions from Active Fires Detected by MODIS Sensor in Lampand on {choice_selected}',
             colorbar=dict(title="Unit of Kg")
         )
     )
@@ -134,21 +134,21 @@ with right_column1:
 # =============================================================================
 # Map graphice for MODIS
 # =============================================================================
-st.header('Air emissions from Active Fires Detected by MODIS Sensor in Lampand based on Real-time')
+st.header('Air emissions from Active Fires Detected by MODIS Sensor in Lampang based on Real-time')
 st.warning('Caution: The spatial map may take some time to process and may result in a timelapse.')
 left_column2, right_column2 = st.columns([1, 1])
 choice3 = de.index.unique()
 choice3 = choice3.sort_values(ascending=False)
-choice_selected3 = left_column.selectbox("Select time for show distribution", choice3)
+choice_selected3 = left_column2.selectbox("Select time for show distribution", choice3)
 choice4 = de.columns[1:]
-choice_selected4 = right_column.selectbox("Select air pollutant types", choice4, key='option1')
+choice_selected4 = right_column2.selectbox("Select air pollutant types", choice4, key='option1')
 de1 = de.loc[choice_selected3]
 
 de2 = de1
 de2.drop('Id', axis = 1, inplace = True)
 de2 = pd.DataFrame(de2.sum(), columns=['emisson (Kg)'])
 # Geographic Map
-st.write(f'{style_title_graph}<p class="center-text bold-color-text">"{choice_selected1} Emissions from Active Fires Detected by VIIRS Sensor in Lampand on {choice_selected}"</p>', unsafe_allow_html=True)
+st.write(f'{style_title_graph}<p class="center-text bold-color-text">"{choice_selected4} Emissions from Active Fires Detected by MODIS Sensor in Lampand on {choice_selected3}"</p>', unsafe_allow_html=True)
 left_column1, right_column1 = st.columns([1, 1])
 with left_column1:
     fig = go.Figure(
@@ -162,7 +162,7 @@ with left_column1:
             # zmax=500000,
             marker_opacity=0.5,
             marker_line_width=0,
-            name = 'PM 2.5 concentration (µg/m3)',
+            name = f'{choice_selected4} Emissions from Active Fires Detected by MODIS Sensor in Lampand on {choice_selected3}',
             colorbar=dict(title="Unit of Kg")
         )
     )
