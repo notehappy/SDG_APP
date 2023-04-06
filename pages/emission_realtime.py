@@ -248,7 +248,7 @@ fig5.update_layout(
     paper_bgcolor="#E3E3E3",
     plot_bgcolor="#FFFFFF",
     # width=900,
-    # height=1000,
+    height=1000,
     # title={'text' : f"SDG 11.2.1 assessment and related value by selecting province in Thailand"
     #     ,'x': 0.5, # Set the x anchor to the center of the chart
     #     'xanchor': 'center'},
