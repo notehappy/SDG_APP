@@ -54,7 +54,7 @@ with open(json1) as response:
 # =============================================================================
 # Map graphice
 # =============================================================================
-st.header('Our study model was used to determine the monthly average PM2.5 concentration in various provinces throughout Thailand.')
+st.header('Air emissions from Active Fires Detected by VIIRS Sensor in Lampand based on Real-time')
 st.warning('Caution: The spatial map may take some time to process and may result in a timelapse.')
 left_column, right_column = st.columns([1, 1])
 choice = df.index.unique()
@@ -118,7 +118,7 @@ with right_column1:
     margin=dict(l=50, r=50, t=50, b=50),
     legend=dict(
         orientation="h",
-        yanchor="top",
+        yanchor="bottom",
         y=1.02,
         xanchor="right",
         x=1
