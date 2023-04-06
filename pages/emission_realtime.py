@@ -59,7 +59,8 @@ fig = go.Figure(
         # zmax=500000,
         marker_opacity=0.5,
         marker_line_width=0,
-        name = 'PM 2.5 concentration (µg/m3)'
+        name = 'PM 2.5 concentration (µg/m3)',
+        colorbar=dict(title="Kg")
     )
 )
 fig.update_layout(
