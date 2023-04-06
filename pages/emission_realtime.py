@@ -25,6 +25,21 @@ image = r'Image/banner.png'
 st.image(image)
 st.title("Emission Real-time from active fire using VIIRS sensor in Lampang")
 
+# =============================================================================
+# Text style
+# =============================================================================
+# Set the CSS styles for bold text and a custom color
+style_title_graph = '''
+    <style>
+        .center-text {
+            text-align: center;
+        }
+        .bold-color-text {
+            font-weight: bold;
+            color: #ff5733;
+        }
+    </style>
+'''
 
 # =============================================================================
 # Data Downloading
@@ -48,27 +63,30 @@ choice1 = df.columns[1:]
 choice_selected1 = right_column.selectbox("Select air pollutant types", choice1)
 df1 = df.loc[choice_selected]
 # Geographic Map
-fig = go.Figure(
-    go.Choroplethmapbox(
-        geojson= geo,
-        locations=df['Id'],
-        featureidkey="properties.Id",
-        z=df1[choice_selected1],
-        colorscale="sunsetdark",
-        # zmin=0,
-        # zmax=500000,
-        marker_opacity=0.5,
-        marker_line_width=0,
-        name = 'PM 2.5 concentration (µg/m3)',
-        colorbar=dict(title="Kg")
+st.write(f'{style_title_graph}<p class="center-text bold-color-text">"{choice_selected1} Emissions from Active Fires Detected by VIIRS Sensor in Lampand on {choice_selected}"</p>', unsafe_allow_html=True)
+left_column1, right_column1 = st.columns([1, 1])
+with left_column1:
+    fig = go.Figure(
+        go.Choroplethmapbox(
+            geojson= geo,
+            locations=df['Id'],
+            featureidkey="properties.Id",
+            z=df1[choice_selected1],
+            colorscale="sunsetdark",
+            # zmin=0,
+            # zmax=500000,
+            marker_opacity=0.5,
+            marker_line_width=0,
+            name = 'PM 2.5 concentration (µg/m3)',
+            colorbar=dict(title="Unit of Kg")
+        )
     )
-)
-fig.update_layout(
-    mapbox_style="carto-positron",
-    mapbox_zoom=7,
-    mapbox_center={"lat": 18.34, "lon": 99.5},
-    width=800,
-    height=600,
-)
-fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
-st.plotly_chart(fig)
+    fig.update_layout(
+        mapbox_style="carto-positron",
+        mapbox_zoom=7,
+        mapbox_center={"lat": 18.34, "lon": 99.5},
+        width=800,
+        height=600,
+    )
+    fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
+    st.plotly_chart(fig)
