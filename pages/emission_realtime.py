@@ -232,7 +232,7 @@ fig5.add_trace(
         x=compare.index,
         y=compare['VIIRS_AREA (km2)'],
         hovertemplate="%{y:.2f}",
-        name= f'{de2.index[i]}',
+        name= f'VIIRS',
 ),
 )
 fig5.add_trace(
@@ -240,7 +240,7 @@ fig5.add_trace(
         x=compare.index,
         y=compare['MODIS_AREA (km2)'],
         hovertemplate="%{y:.2f}",
-        name= f'{de2.index[i]}',
+        name= f'MODIS',
 ),
 )
 # fig2.update_layout(barmode="stack")
@@ -260,7 +260,7 @@ fig5.update_layout(
         xanchor="right",
         x=1
     ),
-    xaxis_title='Types of emission detected by MODIS ',
-    yaxis_title='Amount of emission in Kg',
+    xaxis_title='Types of landuse based on 2018',
+    yaxis_title='Burning area (km2)',
 )
 st.plotly_chart(fig5, use_container_width=True)
