@@ -179,7 +179,7 @@ with left_column1:
 with right_column1:
     fig4 = go.Figure()
     for i in range(de2.shape[0]):
-        fig2.add_trace(
+        fig4.add_trace(
             go.Bar(
                 x=[de2.index[i]],
                 y=[de2.iloc[i,0]],
