@@ -174,4 +174,3 @@ fig2.update_layout(
     margin=dict(l=50, r=50, t=50, b=50)
 )
 st.plotly_chart(fig2)
-
