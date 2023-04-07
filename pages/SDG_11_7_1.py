@@ -115,7 +115,7 @@ fig1.update_layout(
     yaxis_title='The population number of people in Bangkok (people)',
     margin=dict(l=50, r=50, t=50, b=50)
 )
-st.plotly_chart(fig1)
+st.plotly_chart(fig1, use_container_width=True)
 # =============================================================================
 # Bar plot
 # =============================================================================
