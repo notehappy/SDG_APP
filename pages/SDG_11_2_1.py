@@ -115,7 +115,7 @@ if choice_selected1 == 'normal person' and choice_selected2 == 'number of people
             # height = 1000,
         )
         fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
-        st.plotly_chart(fig)
+        st.plotly_chart(fig, use_container_width=True)
     with col2:
         types_public = ['All public transportation', 'Bus', 'Ferry', 'Railway','Train']
         fig2 = go.Figure()
@@ -149,7 +149,7 @@ if choice_selected1 == 'normal person' and choice_selected2 == 'number of people
                 xaxis_title='Year',
                 yaxis_title='Number of people can access public transportration (people)',
             )
-            st.plotly_chart(fig2)
+            st.plotly_chart(fig2, use_container_width=True)
     
 elif choice_selected1 == 'normal person' and choice_selected2 == 'percentage of people':
     left_column1, right_column1 = st.columns([1, 1])
@@ -182,7 +182,7 @@ elif choice_selected1 == 'normal person' and choice_selected2 == 'percentage of 
             # height=800,
         )
         fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
-        st.plotly_chart(fig)
+        st.plotly_chart(fig, use_container_width=True)
         
     with col4:
         fig2 = go.Figure()
@@ -216,7 +216,7 @@ elif choice_selected1 == 'normal person' and choice_selected2 == 'percentage of 
                 xaxis_title='Year',
                 yaxis_title='Percentage of people can access public transportration (people)',
             )
-            st.plotly_chart(fig2)
+            st.plotly_chart(fig2, use_container_width=True)
 
 elif choice_selected1 == 'disabled person' and choice_selected2 == 'number of people':
     left_column1, right_column1 = st.columns([1, 1])
@@ -248,7 +248,7 @@ elif choice_selected1 == 'disabled person' and choice_selected2 == 'number of pe
             # height=800,
         )
         fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
-        st.plotly_chart(fig)
+        st.plotly_chart(fig, use_container_width=True)
     with col6:
         types_public = ['All public transportation', 'Bus', 'Railway']
         fig2 = go.Figure()
@@ -282,7 +282,7 @@ elif choice_selected1 == 'disabled person' and choice_selected2 == 'number of pe
                 xaxis_title='Year',
                 yaxis_title='Number of people with disable can access public transportration (people)',
             )
-            st.plotly_chart(fig2)
+            st.plotly_chart(fig2, use_container_width=True)
 elif choice_selected1 == 'disabled person' and choice_selected2 == 'percentage of people':
     left_column1, right_column1 = st.columns([1, 1])
     choice3 = ['All public transportation', 'Bus', 'Railway']
@@ -346,7 +346,7 @@ elif choice_selected1 == 'disabled person' and choice_selected2 == 'percentage o
                 xaxis_title='Year',
                 yaxis_title='Percentage of people with disable can access public transportration (people)',
             )
-            st.plotly_chart(fig2)
+            st.plotly_chart(fig2, use_container_width=True)
 
 # =============================================================================
 # Age range

@@ -98,7 +98,7 @@ if st.checkbox("Show Map"):
     ),
     )
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, use_container_width=True)
 
 
 # =============================================================================
@@ -141,7 +141,7 @@ fig1.update_layout(
     yaxis_title='SDG 11.6.2 assessment',
     margin=dict(l=50, r=50, t=50, b=50)
 )
-st.plotly_chart(fig1)
+st.plotly_chart(fig1, use_container_width=True)
 
 if st.checkbox("Show Dataframe"):
     st.table(data=df)
@@ -173,4 +173,4 @@ fig2.update_layout(
     yaxis_title='SDG 11.6.2 assessment',
     margin=dict(l=50, r=50, t=50, b=50)
 )
-st.plotly_chart(fig2)
+st.plotly_chart(fig2, use_container_width=True)

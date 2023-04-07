@@ -136,7 +136,7 @@ if st.checkbox("Show Map"):
         height=600,
     )
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, use_container_width=True)
 
 # =============================================================================
 # Bar Plot graphic
@@ -176,4 +176,4 @@ fig1.update_layout(
     xaxis_title='Year',
     margin=dict(l=50, r=50, t=50, b=50)
 )
-st.plotly_chart(fig1)
+st.plotly_chart(fig1, use_container_width=True)

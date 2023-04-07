@@ -81,7 +81,7 @@ fig1.update_layout(
     yaxis_title='The public green area in Bangkok (square meters)',
     margin=dict(l=50, r=50, t=50, b=50)
 )
-st.plotly_chart(fig1)
+st.plotly_chart(fig1, use_container_width=True)
 
 
 fig1 = go.Figure()
@@ -153,5 +153,5 @@ fig1.update_layout(
     yaxis_title='SDG 11.7.1 Assessment',
     margin=dict(l=50, r=50, t=50, b=50)
 )
-st.plotly_chart(fig1)
+st.plotly_chart(fig1, use_container_width=True)
 
