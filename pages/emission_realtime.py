@@ -19,6 +19,13 @@ import os
 st.set_page_config(layout="wide", page_title='Emission Real-time from active fire in Lampang Province', page_icon=":earth_asia:")
 st.sidebar.markdown("Emission Real-time")
 # =============================================================================
+# Template
+# =============================================================================
+css_file = r'styles/main.css'
+with open(css_file) as f:
+    st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
+    
+# =============================================================================
 # Banner and Title
 # =============================================================================
 image = r'Image/banner.png'

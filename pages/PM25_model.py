@@ -18,6 +18,14 @@ from PIL import Image
 import os
 st.set_page_config(layout="wide", page_title='PM2.5 model of this study', page_icon=":earth_asia:")
 st.sidebar.markdown("PM25 Predicting Model")
+
+# =============================================================================
+# Template
+# =============================================================================
+css_file = r'styles/main.css'
+with open(css_file) as f:
+    st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
+
 # =============================================================================
 # Banner and Title
 # =============================================================================

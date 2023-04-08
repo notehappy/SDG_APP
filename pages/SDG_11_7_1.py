@@ -18,6 +18,13 @@ from PIL import Image
 import os
 st.set_page_config(layout="wide", page_title='Ratio of land consumption rate to population growth rate', page_icon=":earth_asia:")
 st.sidebar.markdown("SDG 11.3.1 Assessment")
+# =============================================================================
+# Template
+# =============================================================================
+css_file = r'styles/main.css'
+with open(css_file) as f:
+    st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
+
 
 # =============================================================================
 # Banner and Title

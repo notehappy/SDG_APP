@@ -20,6 +20,13 @@ st.set_page_config(layout="wide", page_title='Proportion of population that has 
 st.sidebar.markdown("SDG 11.2.1 Assessment")
 
 # =============================================================================
+# Template
+# =============================================================================
+css_file = r'styles/main.css'
+with open(css_file) as f:
+    st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
+
+# =============================================================================
 # Banner and Title
 # =============================================================================
 image = r'Image/banner.png'
