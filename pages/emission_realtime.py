@@ -255,7 +255,7 @@ fig5.update_layout(
     paper_bgcolor="#E3E3E3",
     plot_bgcolor="#FFFFFF",
     # width=900,
-    height=1000,
+    height=750,
     # title={'text' : f"SDG 11.2.1 assessment and related value by selecting province in Thailand"
     #     ,'x': 0.5, # Set the x anchor to the center of the chart
     #     'xanchor': 'center'},
@@ -271,3 +271,12 @@ fig5.update_layout(
     yaxis_title='Burning area (km2)',
 )
 st.plotly_chart(fig5, use_container_width=True)
+
+# =============================================================================
+# Types of Landuse
+# =============================================================================
+data = {'LU CODE' : ['A101' , 'A202', 'F101', 'F201'],
+        'DESCRIPTION' : ['Active paddy field', 'Corn', 'Dense evergreen forest', 'Dense deciduous forest']}
+data = pd.DataFrame(data)
+data.set_index('LU CODE', inplace=True)
+st.dataframe(data)
