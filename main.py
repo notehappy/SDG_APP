@@ -9,6 +9,19 @@ import pandas as pd
 st.set_page_config(layout="wide", page_title='Home Page', page_icon=":mortar_board:")
 st.sidebar.markdown("Home Page")
 
+
+# =============================================================================
+# Template
+# =============================================================================
+css_file = r'style/main.css'
+with open(css_file) as f:
+    st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
+
+# =============================================================================
+# Banner and Title
+# =============================================================================
+image = r'Image/banner.png'
+st.image(image)
 # =============================================================================
 # Banner and Title
 # =============================================================================
