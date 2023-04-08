@@ -13,7 +13,7 @@ st.sidebar.markdown("Home Page")
 # =============================================================================
 # Template
 # =============================================================================
-css_file = r'style/main.css'
+css_file = r'styles/main.css'
 with open(css_file) as f:
     st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
 
