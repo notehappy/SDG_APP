@@ -108,9 +108,10 @@ with left_column1:
     fig.update_layout(
         mapbox_style="carto-positron",
         mapbox_zoom=7,
-        mapbox_center={"lat": 18.34, "lon": 99.5}
+        mapbox_center={"lat": 18.34, "lon": 99.5},
         # width=800,
         # height=600,
+        font=dict(color='black')
     )
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
     st.plotly_chart(fig, use_container_width=True)
@@ -145,7 +146,25 @@ with right_column1:
         ),
         xaxis_title='Types of emission detected by VIIRS ',
         yaxis_title='Amount of emission in Kg',
-        font=dict(color='black')
+        font=dict(
+            color='black',
+        ),
+        xaxis=dict(
+            title_font=dict(
+                color='black',
+            ),
+            tickfont=dict(
+                color='black',
+            )
+        ),
+        yaxis=dict(
+            title_font=dict(
+                color='black',
+            ),
+            tickfont=dict(
+                color='black',
+            )
+        )
     )
     st.plotly_chart(fig2, use_container_width=True)
 
@@ -222,13 +241,27 @@ with right_column3:
             y=1.02,
             xanchor="right",
             x=1
-    ),
+        ),
         xaxis_title='Types of emission detected by MODIS ',
         yaxis_title='Amount of emission in Kg',
         font=dict(
-            color='white',
-            size=16,
-            family='Arial'
+            color='black',
+        ),
+        xaxis=dict(
+            title_font=dict(
+                color='black',
+            ),
+            tickfont=dict(
+                color='black',
+            )
+        ),
+        yaxis=dict(
+            title_font=dict(
+                color='black',
+            ),
+            tickfont=dict(
+                color='black',
+            )
         )
     )
     st.plotly_chart(fig4, use_container_width=True)
@@ -272,9 +305,27 @@ fig5.update_layout(
         xanchor="right",
         x=1
     ),
-    xaxis_title='Types of landuse based on 2018',
+    xaxis_title='Types of landuse based on 2018 - 2020',
     yaxis_title='Burning area (km2)',
-    font=dict(color='black')
+    font=dict(
+        color='black',
+    ),
+    xaxis=dict(
+        title_font=dict(
+            color='black',
+        ),
+        tickfont=dict(
+            color='black',
+        )
+    ),
+    yaxis=dict(
+        title_font=dict(
+            color='black',
+        ),
+        tickfont=dict(
+            color='black',
+        )
+    )
 )
 st.plotly_chart(fig5, use_container_width=True)
 
