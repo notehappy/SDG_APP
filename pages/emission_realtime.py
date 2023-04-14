@@ -68,7 +68,7 @@ da.set_index('Date_Time', inplace=True)
 json1 = r"Data/Grid_Lampang_WGS.geojson"
 with open(json1) as response:
     geo = json.load(response)
-compare = pd.read_csv(r'Data/comparing_VIIRS_MODIS_18_20.csv', index_col= 'Unnamed: 0')
+compare = pd.read_csv(r'Data/comparing_VIIRS_MODIS_HIMAWARI_20_22.csv', index_col= 'LU_CODE')
 
 # =============================================================================
 # Map graphice for VIIRS
@@ -269,7 +269,7 @@ with right_column3:
 # =============================================================================
 # Bar plot comparing MODIS and VIIRS
 # =============================================================================
-st.header("Comparison of Burn Area Estimates between MODIS and VIIRS Sensors for 2018-2020")
+st.header("Comparison of Burn Area Estimates between MODIS and VIIRS Sensors for 2020-2022")
 fig5 = go.Figure()
 
 fig5.add_trace(
@@ -286,6 +286,14 @@ fig5.add_trace(
         y=compare['MODIS_AREA (km2)'],
         hovertemplate="%{y:.2f}",
         name= f'MODIS',
+),
+)
+fig5.add_trace(
+    go.Bar(
+        x=compare.index,
+        y=compare['HIMAWARI_AREA (km2)'],
+        hovertemplate="%{y:.2f}",
+        name= f'HIMAWARI',
 ),
 )
 # fig2.update_layout(barmode="stack")
@@ -305,7 +313,7 @@ fig5.update_layout(
         xanchor="right",
         x=1
     ),
-    xaxis_title='Types of landuse based on 2018 - 2020',
+    xaxis_title='Types of landuse based on 2020 - 2022',
     yaxis_title='Burning area (km2)',
     font=dict(
         color='black',
