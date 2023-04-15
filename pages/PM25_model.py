@@ -95,6 +95,7 @@ if st.checkbox("Show Map"):
         )
     )
     fig.update_layout(
+        paper_bgcolor="#E3E3E3",
         mapbox_style="carto-positron",
         mapbox_zoom=4.8,
         mapbox_center={"lat": 13.72917, "lon": 100.52389},

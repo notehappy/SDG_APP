@@ -115,6 +115,7 @@ if choice_selected1 == 'normal person' and choice_selected2 == 'number of people
             )
         )
         fig.update_layout(
+            paper_bgcolor="#E3E3E3",
             mapbox_style="carto-positron",
             mapbox_zoom=8.2,
             mapbox_center={"lat": 13.72917, "lon": 100.52389},
@@ -182,6 +183,7 @@ elif choice_selected1 == 'normal person' and choice_selected2 == 'percentage of 
             )
         )
         fig.update_layout(
+            paper_bgcolor="#E3E3E3",
             mapbox_style="carto-positron",
             mapbox_zoom=8.2,
             mapbox_center={"lat": 13.72917, "lon": 100.52389},
@@ -248,6 +250,7 @@ elif choice_selected1 == 'disabled person' and choice_selected2 == 'number of pe
             )
         )
         fig.update_layout(
+            paper_bgcolor="#E3E3E3",
             mapbox_style="carto-positron",
             mapbox_zoom=8.2,
             mapbox_center={"lat": 13.72917, "lon": 100.52389},
@@ -313,6 +316,7 @@ elif choice_selected1 == 'disabled person' and choice_selected2 == 'percentage o
             )
         )
         fig.update_layout(
+            paper_bgcolor="#E3E3E3",
             mapbox_style="carto-positron",
             mapbox_zoom=8.2,
             mapbox_center={"lat": 13.80, "lon": 100.52389},
