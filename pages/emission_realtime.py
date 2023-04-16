@@ -70,7 +70,7 @@ json1 = r"Data/Grid_Lampang_WGS.geojson"
 with open(json1) as response:
     geo = json.load(response)
 compare = pd.read_csv(r'Data/comparing_VIIRS_MODIS_HIMAWARI_20_22.csv', index_col= 'LU_CODE')
-
+des = pd.read_excel('Data/LUCODE.xlsx')
 # =============================================================================
 # Map graphice for VIIRS
 # =============================================================================
@@ -448,3 +448,6 @@ fig7.update_layout(
     )
 )
 st.plotly_chart(fig7, use_container_width=True)
+
+if st.checkbox("Show types of landuse"):
+    st.table(data=des)
