@@ -71,223 +71,223 @@ json1 = r"Data/Grid_Lampang_WGS.geojson"
 with open(json1) as response:
     geo = json.load(response)
 compare = pd.read_csv(r'Data/comparing_VIIRS_MODIS_HIMAWARI_20_22.csv', index_col= 'LU_CODE')
-describe = pd.read_excel(r'Data/LUCODE.xlsx')
+# describe = pd.read_excel(r'Data/LUCODE.xlsx')
 # =============================================================================
 # Map graphice for VIIRS
 # =============================================================================
-st.header('Air emissions from Active Fires Detected by VIIRS Sensor in Lampang based on Real-time')
-st.warning('Caution: The spatial map may take some time to process and may result in a timelapse.')
-left_column0, right_column0 = st.columns([1, 1])
-choice = df.index.unique()
-choice = choice.sort_values(ascending=False)
-choice_selected = left_column0.selectbox("Select time for show distribution", choice)
-choice1 = df.columns[1:]
-choice_selected1 = right_column0.selectbox("Select air pollutant types", choice1)
-df1 = df.loc[choice_selected]
+# st.header('Air emissions from Active Fires Detected by VIIRS Sensor in Lampang based on Real-time')
+# st.warning('Caution: The spatial map may take some time to process and may result in a timelapse.')
+# left_column0, right_column0 = st.columns([1, 1])
+# choice = df.index.unique()
+# choice = choice.sort_values(ascending=False)
+# choice_selected = left_column0.selectbox("Select time for show distribution", choice)
+# choice1 = df.columns[1:]
+# choice_selected1 = right_column0.selectbox("Select air pollutant types", choice1)
+# df1 = df.loc[choice_selected]
 
-df2 = df1
-df2.drop('Id', axis = 1, inplace = True)
-df2 = pd.DataFrame(df2.sum(), columns=['emisson (Kg)'])
-# Geographic Map
-st.write(f'{style_title_graph}<p class="center-text bold-color-text">"{choice_selected1} Emissions from Active Fires Detected by VIIRS Sensor in Lampand on {choice_selected}"</p>', unsafe_allow_html=True)
-left_column1, right_column1 = st.columns([1, 1])
-with left_column1:
-    fig = go.Figure(
-        go.Choroplethmapbox(
-            geojson= geo,
-            locations=df['Id'],
-            featureidkey="properties.Id",
-            z=df1[choice_selected1],
-            colorscale="sunsetdark",
-            # zmin=0,
-            # zmax=500000,
-            marker_opacity=0.5,
-            marker_line_width=0,
-            name = f'{choice_selected1} Emissions from Active Fires Detected by VIIRS Sensor in Lampand on {choice_selected}',
-            colorbar=dict(title="Unit of Kg")
-        )
-    )
-    fig.update_layout(
-        paper_bgcolor="#E3E3E3",
-        mapbox_style="carto-positron",
-        mapbox_zoom=7,
-        mapbox_center={"lat": 18.34, "lon": 99.5},
-        # width=800,
-        # height=600,
-        font=dict(color='black')
-    )
-    fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
-    st.plotly_chart(fig, use_container_width=True)
+# df2 = df1
+# df2.drop('Id', axis = 1, inplace = True)
+# df2 = pd.DataFrame(df2.sum(), columns=['emisson (Kg)'])
+# # Geographic Map
+# st.write(f'{style_title_graph}<p class="center-text bold-color-text">"{choice_selected1} Emissions from Active Fires Detected by VIIRS Sensor in Lampand on {choice_selected}"</p>', unsafe_allow_html=True)
+# left_column1, right_column1 = st.columns([1, 1])
+# with left_column1:
+#     fig = go.Figure(
+#         go.Choroplethmapbox(
+#             geojson= geo,
+#             locations=df['Id'],
+#             featureidkey="properties.Id",
+#             z=df1[choice_selected1],
+#             colorscale="sunsetdark",
+#             # zmin=0,
+#             # zmax=500000,
+#             marker_opacity=0.5,
+#             marker_line_width=0,
+#             name = f'{choice_selected1} Emissions from Active Fires Detected by VIIRS Sensor in Lampand on {choice_selected}',
+#             colorbar=dict(title="Unit of Kg")
+#         )
+#     )
+#     fig.update_layout(
+#         paper_bgcolor="#E3E3E3",
+#         mapbox_style="carto-positron",
+#         mapbox_zoom=7,
+#         mapbox_center={"lat": 18.34, "lon": 99.5},
+#         # width=800,
+#         # height=600,
+#         font=dict(color='black')
+#     )
+#     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
+#     st.plotly_chart(fig, use_container_width=True)
 
-with right_column1:
-    fig2 = go.Figure()
-    for i in range(df2.shape[0]):
-        fig2.add_trace(
-            go.Bar(
-                x=[df2.index[i]],
-                y=[df2.iloc[i,0]],
-                hovertemplate="%{y:.2f}",
-                name= f'{df2.index[i]}',
-        ),
-        )
-    # fig2.update_layout(barmode="stack")
-    fig2.update_layout(
-        paper_bgcolor="#E3E3E3",
-        plot_bgcolor="#FFFFFF",
-        # width=900,
-        # height=1000,
-        # title={'text' : f"SDG 11.2.1 assessment and related value by selecting province in Thailand"
-        #     ,'x': 0.5, # Set the x anchor to the center of the chart
-        #     'xanchor': 'center'},
-        margin=dict(l=50, r=50, t=50, b=50),
-        legend=dict(
-            orientation="h",
-            yanchor="bottom",
-            y=1.02,
-            xanchor="right",
-            x=1
-        ),
-        xaxis_title='Types of emission detected by VIIRS ',
-        yaxis_title='Amount of emission in Kg',
-        font=dict(
-            color='black',
-        ),
-        xaxis=dict(
-            title_font=dict(
-                color='black',
-            ),
-            tickfont=dict(
-                color='black',
-            )
-        ),
-        yaxis=dict(
-            title_font=dict(
-                color='black',
-            ),
-            tickfont=dict(
-                color='black',
-            )
-        )
-    )
-    st.plotly_chart(fig2, use_container_width=True)
+# with right_column1:
+#     fig2 = go.Figure()
+#     for i in range(df2.shape[0]):
+#         fig2.add_trace(
+#             go.Bar(
+#                 x=[df2.index[i]],
+#                 y=[df2.iloc[i,0]],
+#                 hovertemplate="%{y:.2f}",
+#                 name= f'{df2.index[i]}',
+#         ),
+#         )
+#     # fig2.update_layout(barmode="stack")
+#     fig2.update_layout(
+#         paper_bgcolor="#E3E3E3",
+#         plot_bgcolor="#FFFFFF",
+#         # width=900,
+#         # height=1000,
+#         # title={'text' : f"SDG 11.2.1 assessment and related value by selecting province in Thailand"
+#         #     ,'x': 0.5, # Set the x anchor to the center of the chart
+#         #     'xanchor': 'center'},
+#         margin=dict(l=50, r=50, t=50, b=50),
+#         legend=dict(
+#             orientation="h",
+#             yanchor="bottom",
+#             y=1.02,
+#             xanchor="right",
+#             x=1
+#         ),
+#         xaxis_title='Types of emission detected by VIIRS ',
+#         yaxis_title='Amount of emission in Kg',
+#         font=dict(
+#             color='black',
+#         ),
+#         xaxis=dict(
+#             title_font=dict(
+#                 color='black',
+#             ),
+#             tickfont=dict(
+#                 color='black',
+#             )
+#         ),
+#         yaxis=dict(
+#             title_font=dict(
+#                 color='black',
+#             ),
+#             tickfont=dict(
+#                 color='black',
+#             )
+#         )
+#     )
+#     st.plotly_chart(fig2, use_container_width=True)
 
-# =============================================================================
-# Map graphice for MODIS
-# =============================================================================
-st.header('Air emissions from Active Fires Detected by MODIS Sensor in Lampang based on Real-time')
-st.warning('Caution: The spatial map may take some time to process and may result in a timelapse.')
-left_column2, right_column2 = st.columns([1, 1])
-choice3 = da.index.unique()
-choice3 = choice3.sort_values(ascending=False)
-choice_selected3 = left_column2.selectbox("Select time for show distribution", choice3)
-choice4 = da.columns[1:]
-choice_selected4 = right_column2.selectbox("Select air pollutant types", choice4, key='option1')
-da1 = da.loc[choice_selected3]
+# # =============================================================================
+# # Map graphice for MODIS
+# # =============================================================================
+# st.header('Air emissions from Active Fires Detected by MODIS Sensor in Lampang based on Real-time')
+# st.warning('Caution: The spatial map may take some time to process and may result in a timelapse.')
+# left_column2, right_column2 = st.columns([1, 1])
+# choice3 = da.index.unique()
+# choice3 = choice3.sort_values(ascending=False)
+# choice_selected3 = left_column2.selectbox("Select time for show distribution", choice3)
+# choice4 = da.columns[1:]
+# choice_selected4 = right_column2.selectbox("Select air pollutant types", choice4, key='option1')
+# da1 = da.loc[choice_selected3]
 
-da2 = da1
-da2.drop('Id', axis = 1, inplace = True)
-da2 = pd.DataFrame(da2.sum(), columns=['emisson (Kg)'])
-# Geographic Map
-st.write(f'{style_title_graph}<p class="center-text bold-color-text">"{choice_selected4} Emissions from Active Fires Detected by MODIS Sensor in Lampang on {choice_selected3}"</p>', unsafe_allow_html=True)
-left_column3, right_column3 = st.columns([1, 1])
-with left_column3:
-    fig3 = go.Figure(
-        go.Choroplethmapbox(
-            geojson= geo,
-            locations=da['Id'],
-            featureidkey="properties.Id",
-            z=da1[choice_selected4],
-            colorscale="sunsetdark",
-            # zmin=0,
-            # zmax=500000,
-            marker_opacity=0.5,
-            marker_line_width=0,
-            name = f'{choice_selected4} Emissions from Active Fires Detected by MODIS Sensor in Lampand on {choice_selected3}',
-            colorbar=dict(title="Unit of Kg")
-        )
-    )
-    fig3.update_layout(
-        paper_bgcolor="#E3E3E3",
-        mapbox_style="carto-positron",
-        mapbox_zoom=7,
-        mapbox_center={"lat": 18.34, "lon": 99.5},
-        # width=800,
-        # height=600,
-        font=dict(color='black')
-    )
-    fig3.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
-    st.plotly_chart(fig3, use_container_width=True)
+# da2 = da1
+# da2.drop('Id', axis = 1, inplace = True)
+# da2 = pd.DataFrame(da2.sum(), columns=['emisson (Kg)'])
+# # Geographic Map
+# st.write(f'{style_title_graph}<p class="center-text bold-color-text">"{choice_selected4} Emissions from Active Fires Detected by MODIS Sensor in Lampang on {choice_selected3}"</p>', unsafe_allow_html=True)
+# left_column3, right_column3 = st.columns([1, 1])
+# with left_column3:
+#     fig3 = go.Figure(
+#         go.Choroplethmapbox(
+#             geojson= geo,
+#             locations=da['Id'],
+#             featureidkey="properties.Id",
+#             z=da1[choice_selected4],
+#             colorscale="sunsetdark",
+#             # zmin=0,
+#             # zmax=500000,
+#             marker_opacity=0.5,
+#             marker_line_width=0,
+#             name = f'{choice_selected4} Emissions from Active Fires Detected by MODIS Sensor in Lampand on {choice_selected3}',
+#             colorbar=dict(title="Unit of Kg")
+#         )
+#     )
+#     fig3.update_layout(
+#         paper_bgcolor="#E3E3E3",
+#         mapbox_style="carto-positron",
+#         mapbox_zoom=7,
+#         mapbox_center={"lat": 18.34, "lon": 99.5},
+#         # width=800,
+#         # height=600,
+#         font=dict(color='black')
+#     )
+#     fig3.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
+#     st.plotly_chart(fig3, use_container_width=True)
 
-with right_column3:
-    fig4 = go.Figure()
-    for i in range(da2.shape[0]):
-        fig4.add_trace(
-            go.Bar(
-                x=[da2.index[i]],
-                y=[da2.iloc[i,0]],
-                hovertemplate="%{y:.2f}",
-                name= f'{da2.index[i]}',
-        ),
-        )
-    # fig2.update_layout(barmode="stack")
-    fig4.update_layout(
-        paper_bgcolor="#E3E3E3",
-        plot_bgcolor="#FFFFFF",
-        # width=900,
-        # height=1000,
-        # title={'text' : f"SDG 11.2.1 assessment and related value by selecting province in Thailand"
-        #     ,'x': 0.5, # Set the x anchor to the center of the chart
-        #     'xanchor': 'center'},
-        margin=dict(l=50, r=50, t=50, b=50),
-        legend=dict(
-            orientation="h",
-            yanchor="bottom",
-            y=1.02,
-            xanchor="right",
-            x=1
-        ),
-        xaxis_title='Types of emission detected by MODIS ',
-        yaxis_title='Amount of emission in Kg',
-        font=dict(
-            color='black',
-        ),
-        xaxis=dict(
-            title_font=dict(
-                color='black',
-            ),
-            tickfont=dict(
-                color='black',
-            )
-        ),
-        yaxis=dict(
-            title_font=dict(
-                color='black',
-            ),
-            tickfont=dict(
-                color='black',
-            )
-        )
-    )
-    st.plotly_chart(fig4, use_container_width=True)
+# with right_column3:
+#     fig4 = go.Figure()
+#     for i in range(da2.shape[0]):
+#         fig4.add_trace(
+#             go.Bar(
+#                 x=[da2.index[i]],
+#                 y=[da2.iloc[i,0]],
+#                 hovertemplate="%{y:.2f}",
+#                 name= f'{da2.index[i]}',
+#         ),
+#         )
+#     # fig2.update_layout(barmode="stack")
+#     fig4.update_layout(
+#         paper_bgcolor="#E3E3E3",
+#         plot_bgcolor="#FFFFFF",
+#         # width=900,
+#         # height=1000,
+#         # title={'text' : f"SDG 11.2.1 assessment and related value by selecting province in Thailand"
+#         #     ,'x': 0.5, # Set the x anchor to the center of the chart
+#         #     'xanchor': 'center'},
+#         margin=dict(l=50, r=50, t=50, b=50),
+#         legend=dict(
+#             orientation="h",
+#             yanchor="bottom",
+#             y=1.02,
+#             xanchor="right",
+#             x=1
+#         ),
+#         xaxis_title='Types of emission detected by MODIS ',
+#         yaxis_title='Amount of emission in Kg',
+#         font=dict(
+#             color='black',
+#         ),
+#         xaxis=dict(
+#             title_font=dict(
+#                 color='black',
+#             ),
+#             tickfont=dict(
+#                 color='black',
+#             )
+#         ),
+#         yaxis=dict(
+#             title_font=dict(
+#                 color='black',
+#             ),
+#             tickfont=dict(
+#                 color='black',
+#             )
+#         )
+#     )
+#     st.plotly_chart(fig4, use_container_width=True)
 
 # =============================================================================
 # Map graphice for HIMAWARI
 # =============================================================================
-st.header('Air emissions from Active Fires Detected by HIMAWARI Sensor in Lampang based on Real-time')
+st.header('Air emissions from Active Fires Detected by MODIS Sensor in Lampang based on Real-time')
 st.warning('Caution: The spatial map may take some time to process and may result in a timelapse.')
-left_column4, right_column4 = st.columns([1, 1])
+left_column3, right_column3 = st.columns([1, 1])
 choice5 = db.index.unique()
 choice5 = choice5.sort_values(ascending=False)
-choice_selected5 = left_column4.selectbox("Select time for show distribution", choice5, key='option3')
+choice_selected5 = left_column3.selectbox("Select time for show distribution", choice5)
 choice6 = db.columns[1:]
-choice_selected6 = right_column4.selectbox("Select air pollutant types", choice6, key='option4')
+choice_selected6 = right_column3.selectbox("Select air pollutant types", choice6, key='option1')
 db1 = db.loc[choice_selected5]
 
-db2 = db1
-db2.drop('Id', axis = 1, inplace = True)
+db2 = db1.copy()
+db2.drop(, inplace = True)
 db2 = pd.DataFrame(db2.sum(), columns=['emisson (Kg)'])
 # Geographic Map
-st.write(f'{style_title_graph}<p class="center-text bold-color-text">"{choice_selected6} Emissions from Active Fires Detected by HIMAWARI Sensor in Lampang on {choice_selected5}"</p>', unsafe_allow_html=True)
+st.write(f'{style_title_graph}<p class="center-text bold-color-text">"{choice_selected6} Emissions from Active Fires Detected by MODIS Sensor in Lampang on {choice_selected5}"</p>', unsafe_allow_html=True)
 left_column5, right_column5 = st.columns([1, 1])
 with left_column5:
     fig3 = go.Figure(
@@ -301,7 +301,7 @@ with left_column5:
             # zmax=500000,
             marker_opacity=0.5,
             marker_line_width=0,
-            name = f'{choice_selected6} Emissions from Active Fires Detected by HIMAWARI Sensor in Lampand on {choice_selected5}',
+            name = f'{choice_selected6} Emissions from Active Fires Detected by MODIS Sensor in Lampand on {choice_selected5}',
             colorbar=dict(title="Unit of Kg")
         )
     )
@@ -368,7 +368,6 @@ with right_column5:
         )
     )
     st.plotly_chart(fig4, use_container_width=True)
-
 # =============================================================================
 # Bar plot comparing MODIS and VIIRS
 # =============================================================================
