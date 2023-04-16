@@ -71,7 +71,7 @@ json1 = r"Data/Grid_Lampang_WGS.geojson"
 with open(json1) as response:
     geo = json.load(response)
 compare = pd.read_csv(r'Data/comparing_VIIRS_MODIS_HIMAWARI_20_22.csv', index_col= 'LU_CODE')
-
+describe = pd.read_excel(r'Data/LUCODE.xlsx')
 # =============================================================================
 # Map graphice for VIIRS
 # =============================================================================
@@ -439,11 +439,12 @@ fig7.update_layout(
     )
 )
 st.plotly_chart(fig7, use_container_width=True)
-
-
 # =============================================================================
 # Types of Landuse
 # =============================================================================
+if st.checkbox("Show Dataframe of Description of Landuse"):
+    st.table(data=describe)
+
 # data = {'LU CODE' : ['A101' , 'A202', 'F101', 'F201'],
 #         'DESCRIPTION' : ['Active paddy field', 'Corn', 'Dense evergreen forest', 'Dense deciduous forest']}
 # data = pd.DataFrame(data)
