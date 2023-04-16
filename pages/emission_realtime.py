@@ -65,7 +65,7 @@ df = pd.read_csv(r'Data/emssion_lampang_viirs.csv')
 df.set_index('Date_Time', inplace=True)
 da = pd.read_csv(r'Data/emssion_lampang_modis.csv')
 da.set_index('Date_Time', inplace=True)
-db = pd.read_csv(r'Data\emssion_lampang_himawari.csv')
+db = pd.read_csv(r'Data/emssion_lampang_himawari.csv')
 db.set_index('Date_Time', inplace=True)
 json1 = r"Data/Grid_Lampang_WGS.geojson"
 with open(json1) as response:
@@ -281,7 +281,7 @@ choice5 = choice5.sort_values(ascending=False)
 choice_selected5 = left_column4.selectbox("Select time for show distribution", choice5, key='option3')
 choice6 = db.columns[1:]
 choice_selected6 = right_column4.selectbox("Select air pollutant types", choice6, key='option4')
-db1 = db.loc[choice_selected3]
+db1 = db.loc[choice_selected5]
 
 db2 = db1
 db2.drop('Id', axis = 1, inplace = True)
@@ -372,7 +372,7 @@ with right_column5:
 # =============================================================================
 # Bar plot comparing MODIS and VIIRS
 # =============================================================================
-st.header("Comparison of Burn Area Estimates between MODIS and VIIRS Sensors for 2020-2022")
+st.header("Comparison of Burn Area Estimates between VIIRS, MODIS and HIMAWARI Sensors for 2020-2022")
 fig7 = go.Figure()
 
 fig7.add_trace(
