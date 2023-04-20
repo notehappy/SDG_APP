@@ -27,7 +27,7 @@ with open(css_file) as f:
 # =============================================================================
 # Banner and Title
 # =============================================================================
-image = r'Image/banner.png'
+image = r'Image/banner_EGAT.png'
 st.image(image)
 st.title("Emission Real-time from active fire using VIIRS, MODIS and Himawari sensor in Lampang")
 
@@ -38,7 +38,7 @@ st.subheader('Description')
 # Description of the website
 st.write("* This website presents Real-time emission using the active fire detected by VIIRS, MODIS and Himawari(developing) based on Real-time")
 # Information about the researchers
-st.write("* The researchers were Associate Professor Dr. Ekebodin Winijkul and Mr. Pongsakorn Punpukdee.")
+st.write("* The researchers were Associate Professor Dr. Ekbordin Winijkul and Mr. Pongsakorn Punpukdee.")
 st.write("* For more information and detail contact: ekbordinw@ait.asia")
 
 
