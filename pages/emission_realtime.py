@@ -183,9 +183,24 @@ choice4 = da.columns[1:]
 choice_selected4 = right_column2.selectbox("Select air pollutant types", choice4, key='option1')
 da1 = da.loc[choice_selected3]
 
-da2 = da1
-da2.drop('Id', axis = 1, inplace = True)
-da2 = pd.DataFrame(da2.sum(), columns=['emisson (Kg)'])
+# da2 = da1
+# da2.drop('Id', axis = 1, inplace = True)
+# da2 = pd.DataFrame(da2.sum(), columns=['emisson (Kg)'])
+
+a = f'{type(da1)}'
+if a == "<class 'pandas.core.series.Series'>":
+    da2 = pd.DataFrame(da1[1:])
+    da2.columns = ['emisson (Kg)']
+elif a == "<class 'pandas.core.frame.DataFrame'>":
+    da2 = da1.copy()
+    da2.drop(columns = 'Id', axis = 1, inplace = True)
+    da2 = pd.DataFrame(da2.sum(), columns=['emisson (Kg)'])
+
+if f"{type(da1[choice_selected4])}" == "<class 'numpy.float64'>": #selecting 6 instead of CO
+    z = pd.Series(da1[choice_selected4], index=[choice_selected3])
+else:
+    z = da1[choice_selected4]
+
 # Geographic Map
 st.write(f'{style_title_graph}<p class="center-text bold-color-text">"{choice_selected4} Emissions from Active Fires Detected by MODIS Sensor in Lampang on {choice_selected3}"</p>', unsafe_allow_html=True)
 left_column3, right_column3 = st.columns([1, 1])
@@ -195,7 +210,7 @@ with left_column3:
             geojson= geo,
             locations=da['Id'],
             featureidkey="properties.Id",
-            z=da1[choice_selected4],
+            z=z,
             colorscale="sunsetdark",
             # zmin=0,
             # zmax=500000,
@@ -295,6 +310,8 @@ if f"{type(db1[choice_selected6])}" == "<class 'numpy.float64'>": #selecting 6 i
     z = pd.Series(db1[choice_selected6], index=[choice_selected5])
 else:
     z = db1[choice_selected6]
+
+
 # Geographic Map
 st.write(f'{style_title_graph}<p class="center-text bold-color-text">"{choice_selected6} Emissions from Active Fires Detected by HIMAWARI Sensor in Lampang on {choice_selected5}"</p>', unsafe_allow_html=True)
 left_column5, right_column5 = st.columns([1, 1])
